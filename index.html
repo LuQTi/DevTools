@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="DevTools – Deine praktische Developer Toolbox."
+    >
+
+    <title>DevTools</title>
+
+
+    <!-- Theme vor dem CSS setzen -->
+    <script>
+        const savedTheme =
+            localStorage.getItem("devtools-theme");
+
+        if (savedTheme === "light") {
+            document.documentElement.classList.add("light-theme");
+        }
+    </script>
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ======================================
+         HEADER
+    ======================================= -->
+
+    <header class="header">
+
+        <div class="header-brand">
+
+            <div class="logo">
+                🧰
+            </div>
+
+            <div>
+
+                <h1>DevTools</h1>
+
+                <p>
+                    Developer Toolbox
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Theme wechseln"
+        >
+            ☀️
+        </button>
+
+    </header>
+
+
+    <!-- ======================================
+         MAIN
+    ======================================= -->
+
+    <main class="main-content">
+
+
+        <!-- SEARCH -->
+
+        <section class="search-section">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="tool-search"
+                    placeholder="Tool suchen..."
+                    autocomplete="off"
+                >
+
+                <kbd>
+                    Ctrl K
+                </kbd>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             FAVORITEN
+        =================================== -->
+
+        <section
+            class="tool-section"
+            id="favorites-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        ⭐
+                    </span>
+
+                    <h2>
+                        Favoriten
+                    </h2>
+
+                </div>
+
+                <span
+                    class="tool-count"
+                    id="favorites-count"
+                >
+                    0
+                </span>
+
+            </div>
+
+
+            <div
+                class="tools-grid"
+                id="favorites-grid"
+            >
+
+                <div class="empty-state">
+
+                    <span>☆</span>
+
+                    <p>
+                        Noch keine Favoriten
+                    </p>
+
+                    <small>
+                        Öffne ein Tool und markiere es
+                        unter „Zuletzt verwendet“.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             ZULETZT VERWENDET
+        =================================== -->
+
+        <section
+            class="tool-section"
+            id="recent-section"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        🕘
+                    </span>
+
+                    <h2>
+                        Zuletzt verwendet
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="tools-grid"
+                id="recent-grid"
+            >
+
+                <div class="empty-state">
+
+                    <span>🕘</span>
+
+                    <p>
+                        Noch nichts verwendet
+                    </p>
+
+                    <small>
+                        Deine zuletzt geöffneten
+                        Tools erscheinen hier.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             WEB
+        =================================== -->
+
+        <section class="tool-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        🌐
+                    </span>
+
+                    <h2>
+                        Web
+                    </h2>
+
+                </div>
+
+                <span class="tool-count">
+                    4
+                </span>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <!-- JSON -->
+
+                <article
+                    class="tool-card"
+                    data-tool="json"
+                    data-name="JSON Formatter"
+                    data-category="web data"
+                    data-tags="json formatter format validate"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            {}
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        JSON Formatter
+                    </h3>
+
+                    <p>
+                        JSON formatieren,
+                        validieren und minimieren.
+                    </p>
+
+                </article>
+
+
+                <!-- URL -->
+
+                <article
+                    class="tool-card"
+                    data-tool="url"
+                    data-name="URL Tools"
+                    data-category="web"
+                    data-tags="url encode decode parser"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔗
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        URL Tools
+                    </h3>
+
+                    <p>
+                        URLs encoden, decoden
+                        und analysieren.
+                    </p>
+
+                </article>
+
+
+                <!-- JWT -->
+
+                <article
+                    class="tool-card"
+                    data-tool="jwt"
+                    data-name="JWT Decoder"
+                    data-category="web"
+                    data-tags="jwt token decoder authentication"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔐
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        JWT Decoder
+                    </h3>
+
+                    <p>
+                        Header und Payload eines
+                        JWT anzeigen.
+                    </p>
+
+                </article>
+
+
+                <!-- HTTP -->
+
+                <article
+                    class="tool-card"
+                    data-tool="http"
+                    data-name="HTTP Status"
+                    data-category="web"
+                    data-tags="http status codes web"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🌐
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        HTTP Status
+                    </h3>
+
+                    <p>
+                        HTTP Status Codes
+                        schnell nachschlagen.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             CODE
+        =================================== -->
+
+        <section class="tool-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        💻
+                    </span>
+
+                    <h2>
+                        Code
+                    </h2>
+
+                </div>
+
+                <span class="tool-count">
+                    4
+                </span>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <!-- REGEX -->
+
+                <article
+                    class="tool-card"
+                    data-tool="regex"
+                    data-name="Regex Tester"
+                    data-category="code"
+                    data-tags="regex regular expression test"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔤
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        Regex Tester
+                    </h3>
+
+                    <p>
+                        Reguläre Ausdrücke testen
+                        und Matches anzeigen.
+                    </p>
+
+                </article>
+
+
+                <!-- DIFF -->
+
+                <article
+                    class="tool-card"
+                    data-tool="diff"
+                    data-name="Text Diff"
+                    data-category="code text"
+                    data-tags="diff compare text code"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔀
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        Text Diff
+                    </h3>
+
+                    <p>
+                        Zwei Texte vergleichen
+                        und Unterschiede finden.
+                    </p>
+
+                </article>
+
+
+                <!-- UUID -->
+
+                <article
+                    class="tool-card"
+                    data-tool="uuid"
+                    data-name="UUID Generator"
+                    data-category="code utility"
+                    data-tags="uuid id generator random"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            #
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        UUID Generator
+                    </h3>
+
+                    <p>
+                        Einzelne oder mehrere UUIDs
+                        generieren.
+                    </p>
+
+                </article>
+
+
+                <!-- BASE64 -->
+
+                <article
+                    class="tool-card"
+                    data-tool="base64"
+                    data-name="Base64"
+                    data-category="code encoding"
+                    data-tags="base64 encode decode encoding"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            Aa
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        Base64
+                    </h3>
+
+                    <p>
+                        Text in Base64 encoden
+                        und decoden.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             DATA
+        =================================== -->
+
+        <section class="tool-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        🗄️
+                    </span>
+
+                    <h2>
+                        Data
+                    </h2>
+
+                </div>
+
+                <span class="tool-count">
+                    2
+                </span>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <!-- TIMESTAMP -->
+
+                <article
+                    class="tool-card"
+                    data-tool="timestamp"
+                    data-name="Timestamp Converter"
+                    data-category="data time"
+                    data-tags="timestamp unix date time"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🕐
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        Timestamp Converter
+                    </h3>
+
+                    <p>
+                        Unix Timestamp und Datum
+                        umwandeln.
+                    </p>
+
+                </article>
+
+
+                <!-- SQL -->
+
+                <article
+                    class="tool-card"
+                    data-tool="sql"
+                    data-name="SQL Formatter"
+                    data-category="data sql database"
+                    data-tags="sql formatter database query"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            SQL
+                        </div>
+
+                    </div>
+
+                    <h3>
+                        SQL Formatter
+                    </h3>
+
+                    <p>
+                        SQL Queries übersichtlich
+                        formatieren.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             LINUX
+        =================================== -->
+
+        <section class="tool-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-icon">
+                        🐧
+                    </span>
+
+                    <h2>
+                        Linux
+                    </h2>
+
+                </div>
+
+                <span class="tool-count">
+                    3
+                </span>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+
+                <!-- CHMOD -->
+
+                <article
+                    class="tool-card coming-soon"
+                    data-tool="chmod"
+                    data-name="Chmod Calculator"
+                    data-category="linux"
+                    data-tags="linux chmod permissions"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            🔐
+                        </div>
+
+                        <span class="coming-soon-label">
+                            Soon
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Chmod Calculator
+                    </h3>
+
+                    <p>
+                        Linux Dateiberechtigungen
+                        berechnen.
+                    </p>
+
+                </article>
+
+
+                <!-- CRON -->
+
+                <article
+                    class="tool-card coming-soon"
+                    data-tool="cron"
+                    data-name="Cron Helper"
+                    data-category="linux"
+                    data-tags="linux cron schedule"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            ⏱️
+                        </div>
+
+                        <span class="coming-soon-label">
+                            Soon
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Cron Helper
+                    </h3>
+
+                    <p>
+                        Cron-Ausdrücke erstellen
+                        und verstehen.
+                    </p>
+
+                </article>
+
+
+                <!-- LINUX COMMANDS -->
+
+                <article
+                    class="tool-card coming-soon"
+                    data-tool="linux-commands"
+                    data-name="Linux Commands"
+                    data-category="linux bash"
+                    data-tags="linux bash terminal commands"
+                >
+
+                    <div class="tool-card-top">
+
+                        <div class="tool-icon">
+                            $
+                        </div>
+
+                        <span class="coming-soon-label">
+                            Soon
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Linux Commands
+                    </h3>
+
+                    <p>
+                        Häufige Linux-Befehle
+                        schnell nachschlagen.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- NO RESULTS -->
+
+        <div
+            class="no-results"
+            id="no-results"
+            hidden
+        >
+
+            <span>
+                🔎
+            </span>
+
+            <h2>
+                Kein Tool gefunden
+            </h2>
+
+            <p>
+                Versuche einen anderen Suchbegriff.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- ======================================
+         BOTTOM NAVIGATION
+    ======================================= -->
+
+    <nav class="bottom-nav">
+
+        <button
+            class="nav-item active"
+            data-page="home"
+            type="button"
+        >
+            <span>⌂</span>
+            <small>Home</small>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="favorites"
+            type="button"
+        >
+            <span>☆</span>
+            <small>Favoriten</small>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="recent"
+            type="button"
+        >
+            <span>◷</span>
+            <small>Zuletzt</small>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="settings"
+            type="button"
+        >
+            <span>⚙</span>
+            <small>Einstellungen</small>
+        </button>
+
+    </nav>
+
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+>
+
+    <span id="toast-icon">
+        ✓
+    </span>
+
+    <span id="toast-message">
+        Gespeichert
+    </span>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

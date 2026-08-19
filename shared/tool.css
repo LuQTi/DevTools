@@ -1,0 +1,664 @@
+/* ============================================
+   DEVTOOLS - SHARED TOOL DESIGN
+============================================ */
+
+:root {
+
+    --tool-bg: #0f1117;
+
+    --tool-surface: #171a21;
+
+    --tool-surface-hover: #1d212b;
+
+    --tool-border: #292e3a;
+
+    --tool-text: #f1f3f5;
+
+    --tool-text-muted: #8b93a1;
+
+    --tool-primary: #6c8cff;
+
+    --tool-primary-hover: #809cff;
+
+    --tool-success: #3ddc97;
+
+    --tool-danger: #ff647c;
+
+    --tool-warning: #ffc857;
+
+    --tool-radius: 14px;
+
+    --tool-content-width: 1000px;
+}
+
+
+html.light-theme {
+
+    --tool-bg: #f5f7fa;
+
+    --tool-surface: #ffffff;
+
+    --tool-surface-hover: #f0f2f5;
+
+    --tool-border: #dfe3e8;
+
+    --tool-text: #171a21;
+
+    --tool-text-muted: #68707d;
+
+    --tool-primary: #4f6fff;
+
+    --tool-primary-hover: #3f5de0;
+}
+
+
+/* ============================================
+   BASE
+============================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        var(--tool-bg);
+
+    color:
+        var(--tool-text);
+
+    font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+button,
+textarea,
+input {
+
+    font: inherit;
+}
+
+
+/* ============================================
+   APP
+============================================ */
+
+.tool-app {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ============================================
+   HEADER
+============================================ */
+
+.tool-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 18px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--tool-bg) 92%,
+            transparent
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid var(--tool-border);
+}
+
+
+.tool-back,
+.tool-theme {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid var(--tool-border);
+
+    border-radius: 12px;
+
+    background:
+        var(--tool-surface);
+
+    color:
+        var(--tool-text);
+
+    cursor: pointer;
+
+    display: grid;
+
+    place-items: center;
+
+    transition:
+        0.2s ease;
+}
+
+
+.tool-back {
+
+    font-size: 21px;
+}
+
+
+.tool-theme {
+
+    font-size: 17px;
+}
+
+
+.tool-back:hover,
+.tool-theme:hover {
+
+    background:
+        var(--tool-surface-hover);
+
+    border-color:
+        var(--tool-primary);
+}
+
+
+.tool-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--tool-primary) 15%,
+            var(--tool-surface)
+        );
+
+    color:
+        var(--tool-primary);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-weight: 600;
+}
+
+
+.tool-header-info {
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.tool-header-info h1 {
+
+    margin: 0;
+
+    font-size: 17px;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.tool-header-info p {
+
+    margin: 2px 0 0;
+
+    color:
+        var(--tool-text-muted);
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================
+   MAIN
+============================================ */
+
+.tool-main {
+
+    width: 100%;
+
+    max-width:
+        var(--tool-content-width);
+
+    margin:
+        0 auto;
+
+    padding:
+        24px 18px 60px;
+
+    flex: 1;
+}
+
+
+/* ============================================
+   PANEL
+============================================ */
+
+.tool-panel {
+
+    background:
+        var(--tool-surface);
+
+    border:
+        1px solid var(--tool-border);
+
+    border-radius:
+        var(--tool-radius);
+
+    padding:
+        20px;
+
+    margin-bottom:
+        18px;
+}
+
+
+.tool-panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+}
+
+
+.tool-panel-title {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+.tool-panel-description {
+
+    margin:
+        4px 0 0;
+
+    color:
+        var(--tool-text-muted);
+
+    font-size: 12px;
+}
+
+
+/* ============================================
+   TEXTAREA
+============================================ */
+
+.tool-textarea {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--tool-border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        var(--tool-bg);
+
+    color:
+        var(--tool-text);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.tool-textarea:focus {
+
+    border-color:
+        var(--tool-primary);
+
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--tool-primary) 15%,
+            transparent
+        );
+}
+
+
+.tool-textarea[readonly] {
+
+    opacity: 0.9;
+}
+
+
+/* ============================================
+   ACTIONS
+============================================ */
+
+.tool-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+
+.tool-button {
+
+    min-height: 42px;
+
+    padding:
+        0 16px;
+
+    border:
+        1px solid var(--tool-border);
+
+    border-radius: 10px;
+
+    background:
+        var(--tool-surface);
+
+    color:
+        var(--tool-text);
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition:
+        0.2s ease;
+}
+
+
+.tool-button:hover {
+
+    background:
+        var(--tool-surface-hover);
+
+    border-color:
+        var(--tool-primary);
+}
+
+
+.tool-button:active {
+
+    transform:
+        translateY(1px);
+}
+
+
+.tool-button.primary {
+
+    background:
+        var(--tool-primary);
+
+    border-color:
+        var(--tool-primary);
+
+    color:
+        #ffffff;
+}
+
+
+.tool-button.primary:hover {
+
+    background:
+        var(--tool-primary-hover);
+
+    border-color:
+        var(--tool-primary-hover);
+}
+
+
+/* ============================================
+   STATUS
+============================================ */
+
+.tool-status {
+
+    display: none;
+
+    margin-top: 12px;
+
+    padding:
+        10px 12px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+}
+
+
+.tool-status.show {
+
+    display: block;
+}
+
+
+.tool-status.success {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--tool-success) 12%,
+            transparent
+        );
+
+    color:
+        var(--tool-success);
+}
+
+
+.tool-status.error {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--tool-danger) 12%,
+            transparent
+        );
+
+    color:
+        var(--tool-danger);
+}
+
+
+.tool-status.warning {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--tool-warning) 12%,
+            transparent
+        );
+
+    color:
+        var(--tool-warning);
+}
+
+
+/* ============================================
+   MOBILE
+============================================ */
+
+@media (max-width: 600px) {
+
+    .tool-header {
+
+        padding:
+            10px 12px;
+
+        gap: 9px;
+    }
+
+
+    .tool-back,
+    .tool-theme,
+    .tool-icon {
+
+        width: 40px;
+
+        height: 40px;
+
+        border-radius: 11px;
+    }
+
+
+    .tool-main {
+
+        padding:
+            16px 12px 40px;
+    }
+
+
+    .tool-panel {
+
+        padding:
+            14px;
+
+        border-radius:
+            12px;
+    }
+
+
+    .tool-actions {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .tool-button {
+
+        width: 100%;
+
+        padding:
+            0 10px;
+    }
+
+
+    .tool-textarea {
+
+        min-height: 200px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .tool-header-info h1 {
+
+        font-size: 15px;
+    }
+
+
+    .tool-header-info p {
+
+        font-size: 11px;
+    }
+
+
+    .tool-actions {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}

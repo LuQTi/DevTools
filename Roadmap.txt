@@ -1,0 +1,1644 @@
+Klar — hier ist eine **komplette Roadmap/Feature-Liste**, die du direkt abspeichern kannst. Ich würde sie bewusst so strukturieren, dass wir später einfach abhaken können, was schon fertig ist.
+
+# 🧰 DEVTOOLS — Projekt-Roadmap
+
+> **Ziel:** Eine schnelle, mobile Developer Toolbox für HTML, CSS, JavaScript, Java, PHP, SQL und Linux.
+> **Technik:** HTML + CSS + JavaScript, zunächst komplett clientseitig/offline.
+
+---
+
+## 🏠 1. App-Grundgerüst
+
+* [ ] Mobile-First Layout
+* [ ] Responsive Desktop-Ansicht
+* [ ] Dark Mode
+* [ ] Light Mode
+* [ ] System-Theme automatisch erkennen
+* [ ] Startseite / Dashboard
+* [ ] Tool-Kategorien
+* [ ] Tool-Suche
+* [ ] Favoriten
+* [ ] Zuletzt verwendete Tools
+* [ ] Einstellungen
+* [ ] Copy-to-Clipboard Funktion
+* [ ] Toast/Benachrichtigung nach dem Kopieren
+* [ ] LocalStorage für Einstellungen
+* [ ] LocalStorage für Favoriten
+* [ ] LocalStorage für zuletzt verwendete Tools
+* [ ] Einheitliches Design für alle Tools
+* [ ] Keyboard Shortcuts auf Desktop
+* [ ] PWA-Unterstützung
+* [ ] App auf Homescreen installierbar
+* [ ] Offline-Funktionalität
+* [ ] App-Icon
+* [ ] Favicon
+* [ ] Loading-/Empty-/Error-States
+
+---
+
+# 🌐 2. Web Tools
+
+### JSON
+
+* [ ] JSON Formatter
+* [ ] JSON Minifier
+* [ ] JSON Validator
+* [ ] JSON Sorter
+* [ ] JSON Escape
+* [ ] JSON Unescape
+* [ ] JSON → TypeScript Interface
+* [ ] JSON → Java Class
+* [ ] JSON → PHP Array
+* [ ] JSON Tree Viewer
+
+### URL
+
+* [ ] URL Encoder
+* [ ] URL Decoder
+* [ ] URL Parser
+* [ ] Query-Parameter anzeigen
+* [ ] Query-Parameter bearbeiten
+* [ ] URL → Query String
+* [ ] Query String → Tabelle
+
+### HTML
+
+* [ ] HTML Formatter
+* [ ] HTML Minifier
+* [ ] HTML Entity Encoder
+* [ ] HTML Entity Decoder
+* [ ] HTML Escape / Unescape
+
+### HTTP
+
+* [ ] HTTP Status Code Lookup
+* [ ] Status Code erklären
+* [ ] HTTP Method Helper
+* [ ] HTTP Header Helper
+* [ ] Content-Type Helper
+
+### JWT
+
+* [ ] JWT Decoder
+* [ ] JWT Header anzeigen
+* [ ] JWT Payload anzeigen
+* [ ] JWT Zeitstempel lesbar machen
+* [ ] JWT Claims erklären
+* [ ] Hinweis: keine Signaturvalidierung beim reinen Decoder
+
+---
+
+# 🎨 3. CSS Tools
+
+### Farben
+
+* [ ] HEX → RGB
+* [ ] RGB → HEX
+* [ ] HEX → HSL
+* [ ] HSL → HEX
+* [ ] Farb-Picker
+* [ ] Farbe live anzeigen
+* [ ] CSS `rgb()` Generator
+* [ ] CSS `hsl()` Generator
+* [ ] CSS `oklch()` Converter
+
+### CSS Generatoren
+
+* [ ] Box Shadow Generator
+* [ ] Border Radius Generator
+* [ ] Gradient Generator
+* [ ] Linear Gradient
+* [ ] Radial Gradient
+* [ ] CSS Transform Generator
+* [ ] CSS Transition Generator
+* [ ] CSS Animation Generator
+* [ ] Flexbox Playground
+* [ ] CSS Grid Playground
+
+### CSS Converter
+
+* [ ] px → rem
+* [ ] rem → px
+* [ ] px → em
+* [ ] Prozent → px
+* [ ] Viewport Units Helper
+
+---
+
+# ⚡ 4. JavaScript Tools
+
+* [ ] JSON Tools
+* [ ] Base64 Encoder
+* [ ] Base64 Decoder
+* [ ] URL Encoder
+* [ ] URL Decoder
+* [ ] UUID Generator
+* [ ] Random Number Generator
+* [ ] Random String Generator
+* [ ] Regex Tester
+* [ ] Regex Match Viewer
+* [ ] Timestamp Converter
+* [ ] Date Formatter
+* [ ] Unix Seconds ↔ Milliseconds
+* [ ] JavaScript Escape / Unescape
+* [ ] String Case Converter
+* [ ] String Length Counter
+* [ ] Text → JavaScript String
+* [ ] JavaScript String → Text
+
+---
+
+# ☕ 5. Java Tools
+
+* [ ] Java UUID Generator
+* [ ] Java Date/Time Helper
+* [ ] Java Regex Tester
+* [ ] Java String Escape
+* [ ] Java String Unescape
+* [ ] JSON → Java Class
+* [ ] Java Naming Converter
+* [ ] Java Stack Trace Formatter
+* [ ] Java Stack Trace Analyzer
+* [ ] Java Exception Lookup
+* [ ] Java Primitive Type Helper
+* [ ] Java Collection Helper
+
+### Später
+
+* [ ] Java Code Formatter
+* [ ] Java Code Snippet Library
+* [ ] Maven Helper
+* [ ] Gradle Helper
+
+---
+
+# 🐘 6. PHP Tools
+
+* [ ] PHP Array → JSON
+* [ ] JSON → PHP Array
+* [ ] PHP String Escape
+* [ ] PHP String Unescape
+* [ ] PHP Regex Tester
+* [ ] PHP Date/Time Converter
+* [ ] PHP Error/Exception Helper
+* [ ] PHP Stack Trace Formatter
+* [ ] PHP Function Lookup
+* [ ] PHP Superglobal Helper
+* [ ] PHP HTTP Status Helper
+
+### Später
+
+* [ ] PHP Code Formatter
+* [ ] PHP Snippet Library
+* [ ] `.env` Helper
+* [ ] Composer Helper
+
+---
+
+# 🗄️ 7. SQL Tools
+
+### Formatter
+
+* [ ] SQL Formatter
+* [ ] SQL Minifier
+* [ ] SQL Syntax Highlighting
+* [ ] SQL Beautifier
+
+### Converter / Helper
+
+* [ ] SQL → readable format
+* [ ] SQL Keyword Helper
+* [ ] SQL Data Type Helper
+* [ ] JOIN Helper
+* [ ] JOIN Visualizer
+* [ ] WHERE Helper
+* [ ] GROUP BY Helper
+* [ ] ORDER BY Helper
+
+### Generator
+
+* [ ] CREATE TABLE Generator
+* [ ] INSERT Generator
+* [ ] UPDATE Generator
+* [ ] SELECT Generator
+* [ ] Sample SQL Data Generator
+
+### Später
+
+* [ ] SQL Diff
+* [ ] Table Schema Comparator
+* [ ] SQL Query Explainer
+
+---
+
+# 🐧 8. Linux Tools
+
+### Permissions
+
+* [ ] Chmod Calculator
+* [ ] Permission → Numeric
+* [ ] Numeric → Permission
+* [ ] `chmod` Command Generator
+* [ ] `chown` Helper
+* [ ] `chgrp` Helper
+
+Beispiel:
+
+```text
+rwx r-x r--
+ ↓   ↓   ↓
+ 7   5   4
+
+chmod 754 file
+```
+
+### Cron
+
+* [ ] Cron Expression Generator
+* [ ] Cron Expression Reader
+* [ ] Cron → normale Sprache
+* [ ] Häufige Cron-Beispiele
+
+### Commands
+
+* [ ] Linux Command Search
+* [ ] `grep` Helper
+* [ ] `find` Helper
+* [ ] `sed` Helper
+* [ ] `awk` Helper
+* [ ] `chmod` Helper
+* [ ] `chown` Helper
+* [ ] `tar` Helper
+* [ ] `curl` Helper
+* [ ] `ssh` Helper
+* [ ] `scp` Helper
+* [ ] `rsync` Helper
+* [ ] `systemctl` Helper
+* [ ] `journalctl` Helper
+
+### Sonstige
+
+* [ ] Permission Calculator
+* [ ] File Size Converter
+* [ ] Linux Path Helper
+* [ ] Environment Variable Helper
+* [ ] Bash Escape Helper
+* [ ] Bash Command Generator
+
+---
+
+# 🔐 9. Encoding & Security
+
+> Bei sicherheitsrelevanten Funktionen wollen wir klar zwischen **Encoding, Hashing und echter Kryptografie** unterscheiden.
+
+* [ ] Base64 Encode
+* [ ] Base64 Decode
+* [ ] URL Encode
+* [ ] URL Decode
+* [ ] HTML Encode
+* [ ] HTML Decode
+* [ ] JWT Decode
+* [ ] MD5 Hash
+* [ ] SHA-1 Hash
+* [ ] SHA-256 Hash
+* [ ] SHA-384 Hash
+* [ ] SHA-512 Hash
+* [ ] Hash vergleichen
+* [ ] UUID Generator
+* [ ] Random String Generator
+* [ ] Random Password Generator
+* [ ] Hex ↔ Text
+* [ ] Binary ↔ Text
+* [ ] ASCII ↔ Text
+
+---
+
+# 🔀 10. Text & Code Tools
+
+### Diff
+
+* [ ] Text Diff
+* [ ] Code Diff
+* [ ] Zeilenvergleich
+* [ ] Unterschiede hervorheben
+* [ ] Identische Zeilen erkennen
+* [ ] Ignore Whitespace
+* [ ] Ignore Case
+
+### Text
+
+* [ ] Uppercase
+* [ ] Lowercase
+* [ ] camelCase
+* [ ] PascalCase
+* [ ] snake_case
+* [ ] kebab-case
+* [ ] CONSTANT_CASE
+* [ ] String Length
+* [ ] Word Count
+* [ ] Line Count
+* [ ] Remove Empty Lines
+* [ ] Sort Lines
+* [ ] Remove Duplicate Lines
+* [ ] Add Line Numbers
+
+---
+
+# 🕐 11. Zeit & Datum
+
+* [ ] Unix Timestamp → Datum
+* [ ] Datum → Unix Timestamp
+* [ ] Sekunden → Millisekunden
+* [ ] Millisekunden → Sekunden
+* [ ] UTC → Local Time
+* [ ] Local Time → UTC
+* [ ] ISO 8601 Converter
+* [ ] Date Format Helper
+* [ ] Zeitzonen vergleichen
+* [ ] Zeitdifferenz berechnen
+* [ ] Relative Time Helper
+
+---
+
+# 🧪 12. Testdaten
+
+Für Entwicklungsumgebungen:
+
+* [ ] Random Name
+* [ ] Random Username
+* [ ] Random Email
+* [ ] Random UUID
+* [ ] Random Number
+* [ ] Random Date
+* [ ] Random Address
+* [ ] Random Phone Number
+* [ ] Random Company
+* [ ] JSON Test Data Generator
+* [ ] SQL Test Data Generator
+* [ ] CSV Test Data Generator
+
+---
+
+# 📐 13. Developer Calculator
+
+* [ ] Normaler Rechner
+* [ ] Hex → Decimal
+* [ ] Decimal → Hex
+* [ ] Binary → Decimal
+* [ ] Decimal → Binary
+* [ ] Binary → Hex
+* [ ] Hex → Binary
+* [ ] Bitwise AND
+* [ ] Bitwise OR
+* [ ] XOR
+* [ ] NOT
+* [ ] Bit Shift
+* [ ] Byte → KB → MB → GB
+* [ ] Bits ↔ Bytes
+
+---
+
+# 🌐 14. Network Tools
+
+* [ ] IPv4 Calculator
+* [ ] IPv6 Basics
+* [ ] CIDR Calculator
+* [ ] Subnet Calculator
+* [ ] IP → Binary
+* [ ] IP Range Calculator
+* [ ] Port Number Lookup
+* [ ] Common Ports
+* [ ] HTTP Status Codes
+* [ ] HTTP Methods
+* [ ] Common MIME Types
+* [ ] User-Agent Parser
+* [ ] URL Parser
+
+---
+
+# 📦 15. Git Tools
+
+Die würde ich später definitiv ergänzen.
+
+* [ ] Git Command Helper
+* [ ] `.gitignore` Generator
+* [ ] Git Branch Naming Helper
+* [ ] Git Commit Message Helper
+* [ ] Git Reset Erklärung
+* [ ] Git Rebase Erklärung
+* [ ] Git Merge Erklärung
+* [ ] Git Diff Helper
+* [ ] Git Log Helper
+* [ ] Git Cheat Sheet
+
+---
+
+# 📝 16. Snippet Manager
+
+Ein persönlicher Speicher für deinen eigenen Code.
+
+```text
+⭐ My Snippets
+
+JavaScript
+├── debounce
+├── fetch
+└── event listener
+
+PHP
+├── PDO connection
+└── JSON response
+
+SQL
+├── pagination
+└── JOIN
+
+Linux
+├── backup
+└── find files
+```
+
+Funktionen:
+
+* [ ] Snippet erstellen
+* [ ] Snippet bearbeiten
+* [ ] Snippet löschen
+* [ ] Snippet kopieren
+* [ ] Tags
+* [ ] Kategorien
+* [ ] Suche
+* [ ] Favoriten
+* [ ] LocalStorage
+* [ ] Import
+* [ ] Export
+* [ ] JSON Backup
+
+---
+
+# ⚙️ 17. `.env` & Config Tools
+
+* [ ] `.env` Formatter
+* [ ] `.env` Validator
+* [ ] `.env` → JSON
+* [ ] JSON → `.env`
+* [ ] `.env` → PHP Array
+* [ ] `.env` → Java Properties
+* [ ] `.env` Vergleich
+* [ ] `.env.example` Generator
+* [ ] Fehlende Variablen finden
+* [ ] Variable sortieren
+
+**Wichtig:** Keine Secrets an externe Server senden.
+
+---
+
+# 📊 18. Datenformate
+
+* [ ] JSON Formatter
+* [ ] JSON ↔ CSV
+* [ ] CSV Formatter
+* [ ] CSV → JSON
+* [ ] JSON → CSV
+* [ ] XML Formatter
+* [ ] XML Validator
+* [ ] YAML Formatter
+* [ ] YAML → JSON
+* [ ] JSON → YAML
+* [ ] Base64
+* [ ] URL Encoding
+* [ ] HTML Entities
+
+---
+
+# 🛠️ 19. Entwickler-Komfort
+
+* [ ] Globales Suchfeld
+* [ ] Tool Shortcuts
+* [ ] Favoriten
+* [ ] Recent Tools
+* [ ] One-click Copy
+* [ ] One-click Clear
+* [ ] Input/Output Swap
+* [ ] Fullscreen Tool Mode
+* [ ] Tool teilen
+* [ ] Deep Links zu Tools
+* [ ] Tastatursteuerung
+* [ ] Ctrl/Cmd + K → Suche
+* [ ] Escape → schließen/zurück
+* [ ] Auto-Save von Eingaben
+* [ ] Reset Tool
+* [ ] Export/Import Einstellungen
+
+---
+
+# 📱 20. Mobile/PWA
+
+* [ ] Responsive Design
+* [ ] Touch-optimierte Buttons
+* [ ] Bottom Navigation
+* [ ] Mobile Tool-Suche
+* [ ] PWA Manifest
+* [ ] Service Worker
+* [ ] Offline-Modus
+* [ ] Homescreen Installation
+* [ ] App Icon
+* [ ] Splash Screen
+* [ ] Haptic Feedback, falls sinnvoll
+* [ ] Landscape-Unterstützung
+
+---
+
+# 🏗️ 21. Technische Struktur
+
+```text
+devtools/
+│
+├── index.html
+│
+├── css/
+│   ├── style.css
+│   ├── variables.css
+│   ├── components.css
+│   └── responsive.css
+│
+├── js/
+│   ├── app.js
+│   ├── router.js
+│   ├── storage.js
+│   ├── clipboard.js
+│   ├── search.js
+│   ├── favorites.js
+│   │
+│   └── tools/
+│       ├── json.js
+│       ├── sql.js
+│       ├── regex.js
+│       ├── jwt.js
+│       ├── uuid.js
+│       ├── base64.js
+│       ├── url.js
+│       ├── timestamp.js
+│       ├── diff.js
+│       ├── css.js
+│       └── linux.js
+│
+├── assets/
+│   ├── icon.svg
+│   └── icons/
+│
+├── manifest.json
+│
+└── service-worker.js
+```
+
+---
+
+# 🚀 Entwicklungsreihenfolge
+
+Damit wir uns nicht komplett verzetteln, würde ich die Features in dieser Reihenfolge umsetzen:
+
+### Phase 1 — Fundament
+
+* [ ] Grundlayout
+* [ ] Mobile Design
+* [ ] Dark Mode
+* [ ] Navigation
+* [ ] Tool-System
+* [ ] Suche
+* [ ] Copy Button
+* [ ] LocalStorage
+
+### Phase 2 — wichtigste Tools
+
+* [ ] JSON Formatter
+* [ ] JSON Validator
+* [ ] UUID Generator
+* [ ] Base64
+* [ ] Timestamp
+* [ ] URL Tools
+
+### Phase 3 — Coding
+
+* [ ] Regex Tester
+* [ ] Diff Tool
+* [ ] SQL Formatter
+* [ ] HTML Formatter
+* [ ] Text Tools
+
+### Phase 4 — Web/CSS
+
+* [ ] JWT Decoder
+* [ ] HTTP Status
+* [ ] HTML Entities
+* [ ] Color Converter
+* [ ] Box Shadow Generator
+* [ ] Gradient Generator
+
+### Phase 5 — Linux
+
+* [ ] Chmod Calculator
+* [ ] Cron Helper
+* [ ] Linux Command Helper
+* [ ] Bash Helper
+* [ ] File Permission Tools
+
+### Phase 6 — Sprachen
+
+* [ ] Java Tools
+* [ ] PHP Tools
+* [ ] JavaScript Tools
+* [ ] JSON → Java
+* [ ] JSON → PHP
+
+### Phase 7 — Fortgeschritten
+
+* [ ] Git Tools
+* [ ] `.env` Tools
+* [ ] Network Tools
+* [ ] Test Data Generator
+* [ ] Snippet Manager
+
+### Phase 8 — App
+
+* [ ] PWA
+* [ ] Offline-Modus
+* [ ] Installierbar
+* [ ] Import/Export
+* [ ] Performance optimieren
+* [ ] Accessibility verbessern
+* [ ] Fehlerbehandlung
+* [ ] Tests
+
+---
+
+## 🎯 MVP — die erste wirklich brauchbare Version
+
+Wenn wir es realistisch halten, würde ich **nicht versuchen, die komplette Liste sofort zu bauen**.
+
+Das erste Release sollte nur sein:
+
+```text
+🧰 DEVTOOLS
+
+WEB
+├── {} JSON Formatter
+├── 🔗 URL Tools
+├── 🔐 JWT Decoder
+└── 🌐 HTTP Status
+
+CODE
+├── 🔤 Regex Tester
+├── 🔀 Diff
+├── #️⃣ UUID Generator
+└── 🔤 Base64
+
+DATA
+├── 🕐 Timestamp
+└── 🗄️ SQL Formatter
+```
+
+**10 Tools, aber richtig gut umgesetzt.**
+
+Danach erweitern wir die Toolbox Schritt für Schritt. So bleibt das Projekt überschaubar und du kannst bei jedem neuen Tool gleichzeitig etwas Neues in **HTML, CSS und JavaScript** lernen.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Nein 😄 — das war schon eine **große Roadmap**, aber wenn du meinst: **„Sind das wirklich alle sinnvollen Ideen, die wir in die Developer Toolbox packen könnten?“**, dann definitiv nicht.
+
+Gerade für deinen Stack **HTML, CSS, JavaScript, Java, PHP, SQL und Linux** können wir daraus fast eine komplette persönliche Developer-Swiss-Army-Knife machen.
+
+Ich würde die bisherige Liste noch um diese Bereiche erweitern:
+
+### 🔥 Weitere sehr nützliche Tools
+
+**Web / Browser**
+
+* [ ] Cookie Parser
+* [ ] User-Agent Parser
+* [ ] MIME-Type Lookup
+* [ ] HTTP Header Builder
+* [ ] CORS Helper
+* [ ] CSP Header Generator
+* [ ] Meta-Tag Generator
+* [ ] Open-Graph Generator
+* [ ] Favicon Generator
+* [ ] HTML Boilerplate Generator
+* [ ] `robots.txt` Generator
+* [ ] `sitemap.xml` Generator
+* [ ] Web Manifest Generator
+
+**JavaScript**
+
+* [ ] JS Object Viewer
+* [ ] JS Array Tools
+* [ ] Debounce/Throttle Generator
+* [ ] Fetch Request Generator
+* [ ] `fetch()` → cURL
+* [ ] cURL → Fetch
+* [ ] JSON → JS Object
+* [ ] JS Escape/Unescape
+* [ ] Console Log Generator
+* [ ] Event Listener Helper
+
+**CSS**
+
+* [ ] Flexbox Playground
+* [ ] Grid Playground
+* [ ] `clamp()` Generator
+* [ ] `calc()` Helper
+* [ ] CSS Filter Generator
+* [ ] CSS Transform Generator
+* [ ] CSS Transition Generator
+* [ ] CSS Animation Generator
+* [ ] Responsive Breakpoint Helper
+* [ ] Gradient Generator
+* [ ] Glassmorphism Generator
+
+**SQL / Datenbanken**
+
+* [ ] SQL Formatter
+* [ ] SQL Minifier
+* [ ] SQL → CSV
+* [ ] CSV → SQL INSERT
+* [ ] JSON → SQL INSERT
+* [ ] CREATE TABLE Generator
+* [ ] Foreign-Key Helper
+* [ ] JOIN Visualizer
+* [ ] SQL Data Generator
+* [ ] Database Schema Designer
+* [ ] Schema Diff
+* [ ] SQL Query Explainer
+
+**Java**
+
+* [ ] Stack Trace Analyzer
+* [ ] Exception Lookup
+* [ ] JSON → Java Class
+* [ ] Java Properties ↔ JSON
+* [ ] Maven Command Helper
+* [ ] Gradle Command Helper
+* [ ] JVM Options Helper
+* [ ] Regex → Java String
+* [ ] Java Date Formatter
+
+**PHP**
+
+* [ ] PHP Array ↔ JSON
+* [ ] PHP `var_dump()` Formatter
+* [ ] PHP Error Decoder
+* [ ] PHP Stack Trace Analyzer
+* [ ] Composer Helper
+* [ ] `.env` → PHP Config
+* [ ] Regex → PHP String
+* [ ] PHP Date Helper
+
+**Linux / Bash**
+
+* [ ] Chmod Calculator
+* [ ] Chown Generator
+* [ ] Cron Generator
+* [ ] Cron Explainer
+* [ ] `find` Command Builder
+* [ ] `grep` Command Builder
+* [ ] `sed` Command Builder
+* [ ] `awk` Command Builder
+* [ ] `tar` Command Builder
+* [ ] `curl` Command Builder
+* [ ] `ssh` Command Builder
+* [ ] `scp` Command Builder
+* [ ] `rsync` Command Builder
+* [ ] `systemctl` Helper
+* [ ] `journalctl` Helper
+* [ ] Bash Escape Tool
+* [ ] Bash Variable Helper
+* [ ] Linux Permission Explainer
+* [ ] Disk-Size Converter
+
+**Git**
+
+* [ ] `.gitignore` Generator
+* [ ] Git Command Builder
+* [ ] Git Commit Helper
+* [ ] Conventional Commit Generator
+* [ ] Branch Name Generator
+* [ ] Git Reset Helper
+* [ ] Git Rebase Helper
+* [ ] Git Merge Helper
+* [ ] Git Cherry-Pick Helper
+* [ ] Git Diff Viewer
+* [ ] Git Log Formatter
+
+**Networking**
+
+* [ ] IPv4 Calculator
+* [ ] IPv6 Calculator
+* [ ] CIDR Calculator
+* [ ] Subnet Calculator
+* [ ] IP → Binary
+* [ ] Port Lookup
+* [ ] Common Ports
+* [ ] DNS Record Helper
+* [ ] URL Parser
+* [ ] Query String Builder
+
+**Code / Text**
+
+* [ ] Text Diff
+* [ ] JSON Diff
+* [ ] XML Diff
+* [ ] Case Converter
+* [ ] Duplicate Line Remover
+* [ ] Line Sorter
+* [ ] Line Numberer
+* [ ] Whitespace Cleaner
+* [ ] Indentation Converter
+* [ ] Tab ↔ Spaces
+* [ ] String Counter
+* [ ] Word Counter
+
+**Encoding / Daten**
+
+* [ ] Base64
+* [ ] URL Encoding
+* [ ] HTML Entities
+* [ ] JWT
+* [ ] Hex ↔ Text
+* [ ] Binary ↔ Text
+* [ ] ASCII ↔ Text
+* [ ] Unicode Inspector
+* [ ] JSON ↔ YAML
+* [ ] JSON ↔ CSV
+* [ ] XML Formatter
+
+---
+
+### 💡 Und dann gibt es noch eine Kategorie, die ich besonders interessant finde:
+
+## 🧠 „Developer Helpers“
+
+Tools, die nicht einfach Daten umwandeln, sondern dir **Arbeit abnehmen**.
+
+Zum Beispiel:
+
+**„Ich habe diese cURL-Anfrage“**
+
+```bash
+curl -X POST https://api.example.com/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Max"}'
+```
+
+→ automatisch:
+
+```javascript
+fetch("https://api.example.com/users", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: "Max"
+    })
+});
+```
+
+Oder:
+
+```text
+JSON
+ ↓
+Java Class
+ ↓
+PHP Class
+ ↓
+TypeScript Interface
+```
+
+Oder:
+
+```text
+SQL
+ ↓
+erkennt Tabellen
+ ↓
+erstellt Schema-Diagramm
+```
+
+Oder:
+
+```text
+Stack Trace
+ ↓
+erkennt Exception
+ ↓
+zeigt relevante Zeile
+ ↓
+erklärt wahrscheinliche Ursache
+```
+
+Das sind die Funktionen, die aus einer **„Tool-Sammlung“** irgendwann eine **wirklich interessante Entwickler-App** machen.
+
+---
+
+### 🏆 Wenn wir wirklich groß denken
+
+Am Ende könnte deine App ungefähr so aussehen:
+
+```text
+                    🧰 DEVTOOLS
+                         │
+       ┌─────────────────┼─────────────────┐
+       │                 │                 │
+      WEB               CODE              DATA
+       │                 │                 │
+   HTML/CSS             JS               JSON
+   HTTP                 Java             SQL
+   URLs                 PHP              CSV
+   JWT                  Regex            XML
+       │                 │                 │
+       ├──────────────┬──┴──┬──────────────┤
+                      │
+                   LINUX
+                      │
+             Git / Bash / SSH
+                      │
+                      ↓
+              Developer Helpers
+                      │
+            ┌─────────┼─────────┐
+            ↓         ↓         ↓
+          Format    Convert    Generate
+```
+
+Damit könnten wir **weit über 100 einzelne Funktionen** haben.
+
+Aber ich würde sie **nicht alle in die erste Version packen**. Wir können die Liste als langfristige Roadmap behalten und zuerst die **10–15 Tools bauen, die du tatsächlich jeden Tag benutzen würdest**.
+
+
+Ich entwickle eine mobile Developer Toolbox als Web-App namens „DevTools“.
+
+Technologien:
+- HTML
+- CSS
+- JavaScript
+- später eventuell PHP/SQL
+- Ziel: praktisch für den Entwickler-Alltag
+- Mobile First
+
+WICHTIG:
+Wir haben bereits ein gemeinsames System für alle Tools aufgebaut.
+Bitte halte dich bei neuen Tools exakt an dieses System und erfinde kein neues Layout.
+
+PROJEKTSTRUKTUR:
+
+DevTools/
+│
+├── index.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── app.js
+│
+├── shared/
+│   ├── tool.css
+│   └── tool.js
+│
+└── tools/
+    ├── json/
+    │   ├── json.html
+    │   └── json.js
+    │
+    └── base64/
+        ├── base64.html
+        └── base64.js
+
+
+GEMEINSAMES SYSTEM:
+
+shared/tool.css
+→ enthält das komplette gemeinsame Design aller Tool-Seiten.
+
+shared/tool.js
+→ enthält gemeinsames Verhalten:
+- Dark/Light Mode
+- Theme aus localStorage
+- Zurück zur Startseite
+- Copy-to-Clipboard
+- Statusmeldungen
+- gemeinsame Helper
+
+Jedes Tool besitzt KEIN eigenes CSS.
+
+Ein Tool besteht grundsätzlich nur aus:
+
+tools/NAME/
+├── NAME.html
+└── NAME.js
+
+Die HTML-Datei lädt:
+
+<link rel="stylesheet" href="../../shared/tool.css">
+
+<script src="../../shared/tool.js"></script>
+<script src="NAME.js"></script>
+
+Das Design soll bei allen Tools gleich bleiben.
+
+HEADER:
+
+- Zurück-Button
+- Tool-Icon
+- Tool-Name
+- kurze Beschreibung
+- Theme-Button
+
+Beispiel:
+
+←   {}   JSON Formatter                    ☀️
+        JSON formatieren, validieren und minimieren
+
+
+STANDARD-LAYOUT:
+
+.tool-app
+└── .tool-header
+└── .tool-main
+    ├── .tool-panel
+    ├── .tool-panel
+    └── ...
+
+Für Eingabefelder:
+.tool-textarea
+
+Für Buttons:
+.tool-button
+.tool-button.primary
+
+Für Status:
+.tool-status
+.tool-status.success
+.tool-status.error
+.tool-status.warning
+
+
+BEREITS VORHANDENE TOOLS:
+
+1. JSON Formatter
+   - JSON formatieren
+   - JSON minimieren
+   - JSON validieren
+   - Beispiel laden
+   - Eingabe/Ausgabe löschen
+   - Ausgabe kopieren
+   - Ctrl + Enter zum Formatieren
+
+2. Base64
+   - Encode
+   - Decode
+   - UTF-8-Unterstützung
+   - Beispiel
+   - Leeren
+   - Ausgabe kopieren
+
+
+STARTSEITE:
+
+Die Startseite enthält:
+- Suche
+- Favoriten
+- zuletzt verwendete Tools
+- Kategorien
+- Bottom Navigation
+- Dark/Light Mode
+
+Favoriten können nur über „Zuletzt verwendet“ gesetzt werden.
+
+localStorage wird für Theme, Favoriten und zuletzt verwendete Tools benutzt.
+
+JSON ist bereits über:
+
+tools/json/json.html
+
+erreichbar.
+
+Base64 soll über:
+
+tools/base64/base64.html
+
+erreichbar sein.
+
+
+DESIGN-REGELN:
+
+- Mobile First
+- sauber
+- modern
+- dunkel als Standard
+- Light Mode vorhanden
+- keine unnötigen Animationen
+- keine Frameworks
+- reines HTML/CSS/JavaScript
+- bestehende Struktur nicht unnötig verändern
+- gemeinsames CSS verwenden
+- keine CSS-Datei pro Tool erstellen
+- bestehende Funktionen nicht kaputt machen
+
+
+JETZTIGE AUFGABE:
+
+Wir möchten als nächstes ein neues Tool hinzufügen.
+
+Bitte:
+1. erkläre kurz, welche Dateien wir dafür brauchen
+2. erstelle die HTML-Datei
+3. erstelle die JS-Datei
+4. verwende das bestehende shared/tool.css
+5. verwende das bestehende shared/tool.js
+6. passe das Design nicht eigenmächtig an
+7. zeige mir genau, was ich in app.js ergänzen muss, damit das Tool von der Startseite aus geöffnet werden kann
+
+Wenn du Dateien brauchst, die ich noch nicht gezeigt habe, frage mich danach, anstatt deren Inhalt zu erfinden.
+
+
+Ja. Ich würde die Toolbox jetzt einmal **komplett planen**, damit wir später nicht ständig neue Tools dazuerfinden müssen.
+
+Da du hauptsächlich **HTML, CSS, JavaScript, Java, PHP, SQL und Linux** nutzt, würde ich die Liste entsprechend ausrichten.
+
+# 🧰 DevTools – komplette Tool-Liste
+
+## 🌐 Web
+
+### URLs & Web
+
+* [ ] URL Encoder / Decoder
+* [ ] URL Parser
+* [ ] Query Parameter Builder
+* [ ] HTTP Status Codes
+* [ ] MIME Type Lookup
+* [ ] User-Agent Parser
+* [ ] HTML Entity Encoder / Decoder
+* [ ] HTML Formatter
+* [ ] HTML Minifier
+
+### JSON / APIs
+
+* [x] JSON Formatter
+* [ ] JSON Validator
+* [ ] JSON Minifier
+* [ ] JSON Tree Viewer
+* [ ] JSON → CSV
+* [ ] JSON → YAML
+* [ ] JSON Path Tester
+* [ ] JSON Diff
+* [ ] API Request Builder
+
+### Auth / Web Security
+
+* [ ] JWT Decoder
+* [ ] JWT Generator
+* [ ] JWT Timestamp Checker
+* [ ] HTTP Headers Reference
+* [ ] CORS Reference
+* [ ] Cookie Parser
+* [ ] Basic Auth Generator
+
+---
+
+# 💻 JavaScript
+
+* [ ] JavaScript Formatter
+* [ ] JavaScript Minifier
+* [ ] JSON ↔ JavaScript Object
+* [ ] Regex Tester
+* [ ] Regex Cheatsheet
+* [ ] JavaScript Escape / Unescape
+* [ ] String Escape / Unescape
+* [ ] Array Helper
+* [ ] Object Helper
+* [ ] Random Number Generator
+* [ ] UUID Generator
+* [ ] Debounce / Throttle Generator
+* [ ] JS Date Helper
+* [ ] Console Formatter
+
+---
+
+# 🎨 HTML / CSS
+
+### HTML
+
+* [ ] HTML Formatter
+* [ ] HTML Minifier
+* [ ] HTML Entity Encoder
+* [ ] HTML Entity Decoder
+* [ ] Meta Tag Generator
+* [ ] Open Graph Generator
+* [ ] Favicon Generator
+* [ ] Semantic HTML Reference
+
+### CSS
+
+* [ ] CSS Formatter
+* [ ] CSS Minifier
+* [ ] CSS Color Converter
+* [ ] HEX ↔ RGB
+* [ ] RGB ↔ HSL
+* [ ] Color Picker
+* [ ] Gradient Generator
+* [ ] Box Shadow Generator
+* [ ] Border Radius Generator
+* [ ] CSS Grid Generator
+* [ ] Flexbox Generator
+* [ ] CSS Transform Generator
+* [ ] CSS Clamp Generator
+* [ ] CSS Media Query Generator
+
+---
+
+# ☕ Java
+
+* [ ] Java Formatter
+* [ ] Java Escape / Unescape
+* [ ] Java Regex Tester
+* [ ] Java Date/Time Helper
+* [ ] Java UUID Generator
+* [ ] Java Properties Formatter
+* [ ] Java Stack Trace Analyzer
+* [ ] Java Exception Lookup
+* [ ] Java HTTP Status Helper
+* [ ] Java Type Converter
+
+---
+
+# 🐘 PHP
+
+* [ ] PHP Formatter
+* [ ] PHP Minifier
+* [ ] PHP Escape / Unescape
+* [ ] PHP `var_dump()` Formatter
+* [ ] PHP Array Formatter
+* [ ] PHP `php.ini` Reference
+* [ ] PHP Date Helper
+* [ ] PHP Error Lookup
+* [ ] PHP HTTP Status Helper
+* [ ] PHP Serialization Helper
+* [ ] PHP URL Helper
+
+---
+
+# 🗄️ SQL / Datenbanken
+
+### SQL
+
+* [ ] SQL Formatter
+* [ ] SQL Minifier
+* [ ] SQL Validator
+* [ ] SQL Beautifier
+* [ ] SQL Keyword Reference
+* [ ] SQL Data Type Reference
+* [ ] SQL JOIN Visualizer
+* [ ] SQL Query Builder
+* [ ] SQL WHERE Builder
+* [ ] SQL INSERT Generator
+* [ ] SQL UPDATE Generator
+* [ ] SQL DELETE Generator
+
+### Daten
+
+* [ ] CSV Viewer
+* [ ] CSV → JSON
+* [ ] JSON → CSV
+* [ ] CSV Formatter
+* [ ] TSV → CSV
+* [ ] Fake Data Generator
+* [ ] SQL INSERT Generator
+* [ ] SQL Table Generator
+
+---
+
+# 🐧 Linux
+
+### Befehle
+
+* [ ] Linux Commands
+* [ ] Bash Cheatsheet
+* [ ] Grep Helper
+* [ ] Find Command Builder
+* [ ] `curl` Command Builder
+* [ ] `wget` Command Builder
+* [ ] `tar` Command Builder
+* [ ] `ssh` Command Builder
+* [ ] `scp` Command Builder
+
+### Permissions
+
+* [ ] Chmod Calculator
+* [ ] Chown Helper
+* [ ] Linux Permission Decoder
+* [ ] Unix Permission Reference
+
+### Cron
+
+* [ ] Cron Generator
+* [ ] Cron Expression Parser
+* [ ] Cron Schedule Preview
+
+### System
+
+* [ ] Systemd Command Builder
+* [ ] Nginx Config Reference
+* [ ] Apache Config Reference
+* [ ] Environment Variable Helper
+* [ ] `.env` Viewer
+* [ ] Path Analyzer
+
+---
+
+# 🔐 Encoding & Security
+
+* [ ] Base64 Encoder / Decoder
+* [ ] URL Encoder / Decoder
+* [ ] HTML Entity Encoder / Decoder
+* [ ] Hex Encoder / Decoder
+* [ ] Binary Encoder / Decoder
+* [ ] Unicode Converter
+* [ ] ASCII Converter
+* [ ] JWT Decoder
+* [ ] Hash Generator
+* [ ] SHA-256 Generator
+* [ ] SHA-512 Generator
+* [ ] MD5 Generator
+* [ ] HMAC Generator
+* [ ] UUID Generator
+* [ ] Random String Generator
+* [ ] Password Generator
+
+> Bei kryptografischen Tools sollten wir klar kennzeichnen, was **Hashing**, **Encoding** und **Verschlüsselung** ist.
+
+---
+
+# 📝 Text
+
+* [ ] Text Diff
+* [ ] Text Counter
+* [ ] Word Counter
+* [ ] Character Counter
+* [ ] Line Counter
+* [ ] Remove Duplicate Lines
+* [ ] Sort Lines
+* [ ] Reverse Lines
+* [ ] Trim Lines
+* [ ] Find & Replace
+* [ ] Text Case Converter
+* [ ] Camel Case Converter
+* [ ] Pascal Case Converter
+* [ ] Snake Case Converter
+* [ ] Kebab Case Converter
+* [ ] Slug Generator
+* [ ] Lorem Ipsum Generator
+
+---
+
+# 🔢 Converter
+
+* [ ] Timestamp Converter
+* [ ] Unix Timestamp Converter
+* [ ] Date Converter
+* [ ] Time Zone Converter
+* [ ] Number Base Converter
+* [ ] Decimal → Binary
+* [ ] Decimal → Hex
+* [ ] Binary → Decimal
+* [ ] Hex → Decimal
+* [ ] Bytes Converter
+* [ ] KB / MB / GB Converter
+* [ ] Seconds Converter
+* [ ] Percentage Calculator
+
+---
+
+# 🧮 Developer Calculator
+
+* [ ] Standard Calculator
+* [ ] Programmer Calculator
+* [ ] Binary Calculator
+* [ ] Hex Calculator
+* [ ] Bitwise AND
+* [ ] Bitwise OR
+* [ ] Bitwise XOR
+* [ ] Bit Shift Calculator
+* [ ] Modulo Calculator
+* [ ] Percentage Calculator
+* [ ] Unix Timestamp Calculator
+
+---
+
+# 🔍 Debugging
+
+Das würde ich **sehr weit oben** priorisieren.
+
+* [ ] JSON Validator
+* [ ] JSON Diff
+* [ ] Text Diff
+* [ ] Regex Tester
+* [ ] JWT Decoder
+* [ ] Stack Trace Analyzer
+* [ ] URL Parser
+* [ ] HTTP Status Lookup
+* [ ] HTTP Header Analyzer
+* [ ] Error Message Search
+* [ ] Log Formatter
+* [ ] Log Level Filter
+* [ ] Log Timestamp Converter
+
+---
+
+# 🧰 Git
+
+Das fehlt meiner Meinung nach noch in deiner Toolbox und wäre für einen Entwickler sehr praktisch.
+
+* [ ] Git Command Reference
+* [ ] Git Command Builder
+* [ ] `.gitignore` Generator
+* [ ] Git Branch Name Generator
+* [ ] Git Commit Message Helper
+* [ ] Git Diff Viewer
+* [ ] Git Hash Helper
+* [ ] Git Reset Helper
+* [ ] Git Rebase Helper
+* [ ] Git Merge Helper
+* [ ] Git Config Reference
+
+---
+
+# 📦 Docker
+
+Wenn du mit Linux arbeitest, würde ich Docker ebenfalls aufnehmen.
+
+* [ ] Docker Command Reference
+* [ ] Docker Run Builder
+* [ ] Docker Compose Generator
+* [ ] Dockerfile Generator
+* [ ] Docker Port Builder
+* [ ] Docker Volume Builder
+* [ ] Docker Environment Builder
+* [ ] Docker `.dockerignore` Generator
+
+---
+
+# 🌍 Netzwerk
+
+* [ ] IP Address Info
+* [ ] IPv4 Calculator
+* [ ] IPv6 Calculator
+* [ ] Subnet Calculator
+* [ ] CIDR Calculator
+* [ ] Port Reference
+* [ ] DNS Record Reference
+* [ ] MAC Address Formatter
+* [ ] URL → Domain Parser
+* [ ] HTTP Status Reference
+* [ ] HTTP Header Reference
+
+---
+
+# 🛠️ Generatoren
+
+* [ ] UUID Generator
+* [ ] Password Generator
+* [ ] Random String Generator
+* [ ] Lorem Ipsum Generator
+* [ ] HTML Template Generator
+* [ ] CSS Reset Generator
+* [ ] `.gitignore` Generator
+* [ ] `.env` Template Generator
+* [ ] README Generator
+* [ ] SQL Table Generator
+* [ ] SQL INSERT Generator
+* [ ] JSON Mock Data Generator
+* [ ] Cron Generator
+* [ ] Regex Generator
+* [ ] Dockerfile Generator
+* [ ] Docker Compose Generator
+
+---
+
+# 📚 Referenzen / Cheatsheets
+
+Diese sollten nicht unbedingt komplizierte Tools sein, sondern **schnelle Nachschlagewerke**.
+
+* [ ] HTTP Status Codes
+* [ ] HTTP Headers
+* [ ] HTML Tags
+* [ ] CSS Properties
+* [ ] JavaScript Methods
+* [ ] Java Keywords
+* [ ] Java Exceptions
+* [ ] PHP Functions
+* [ ] PHP Error Codes
+* [ ] SQL Commands
+* [ ] SQL Data Types
+* [ ] Linux Commands
+* [ ] Bash Commands
+* [ ] Git Commands
+* [ ] Docker Commands
+* [ ] Regex Syntax
+* [ ] Markdown Syntax
+* [ ] Unicode Characters
+* [ ] ASCII Table
+* [ ] MIME Types
+
+---
+
+# ⭐ Meine Priorität für deine Toolbox
+
+Ich würde **nicht einfach von oben nach unten alles programmieren**. Einige Tools sind deutlich nützlicher als andere.
+
+### 🔥 Phase 1 – unbedingt
+
+```text
+[x] JSON Formatter
+[x] Base64
+[ ] URL Encoder / Decoder
+[ ] Regex Tester
+[ ] Text Diff
+[ ] UUID Generator
+[ ] Timestamp Converter
+[ ] SQL Formatter
+[ ] JWT Decoder
+[ ] Chmod Calculator
+```
+
+### 🔥 Phase 2 – sehr praktisch
+
+```text
+[ ] HTML Formatter
+[ ] CSS Formatter
+[ ] HTML Entity Encoder / Decoder
+[ ] Color Converter
+[ ] CSS Gradient Generator
+[ ] JSON Tree Viewer
+[ ] JSON Diff
+[ ] CSV → JSON
+[ ] JSON → CSV
+[ ] Git Command Reference
+[ ] .gitignore Generator
+```
+
+### 🔥 Phase 3 – Entwickler-Alltag
+
+```text
+[ ] Linux Commands
+[ ] Cron Helper
+[ ] SSH Command Builder
+[ ] Curl Command Builder
+[ ] Docker Command Reference
+[ ] Docker Run Builder
+[ ] IP Calculator
+[ ] CIDR Calculator
+[ ] HTTP Header Reference
+[ ] Stack Trace Analyzer
+```
+
+### 🔥 Phase 4 – größere Tools
+
+```text
+[ ] API Request Builder
+[ ] SQL Query Builder
+[ ] SQL JOIN Visualizer
+[ ] Docker Compose Generator
+[ ] Regex Generator
+[ ] JSON Mock Data Generator
+[ ] Log Analyzer
+[ ] Programmer Calculator
+```
+
+---
+
+## 💡 Und ich würde noch eine Kategorie hinzufügen: „Quick Tools“
+
+Das könnte sogar eine der **wichtigsten Funktionen der gesamten App** werden.
+
+Auf der Startseite:
+
+```text
+⚡ Schnellzugriff
+
+[ JSON ] [ Base64 ] [ Regex ]
+[ UUID ] [ URL ]   [ SQL ]
+```
+
+Dazu eine globale Suche mit z. B.:
+
+```text
+Ctrl + K
+```
+
+und auf dem Handy einfach das Suchfeld.
+
+Dann musst du nicht erst durch Kategorien navigieren, sondern kannst beispielsweise **„chmod“**, **„jwt“**, **„timestamp“** oder **„base64“** eingeben und bist sofort beim richtigen Tool.
+
+Damit wird die Toolbox tatsächlich zu etwas, das man **jeden Tag beim Programmieren öffnen kann**, statt nur zu einer Sammlung von kleinen Spielereien.
+
