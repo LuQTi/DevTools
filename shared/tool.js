@@ -127,7 +127,7 @@ function initializeToolNavigation() {
             () => {
 
                 window.location.href =
-                    "../../index.html";
+                    "../index.html";
 
             }
         );

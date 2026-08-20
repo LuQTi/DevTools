@@ -1642,3 +1642,630 @@ Dann musst du nicht erst durch Kategorien navigieren, sondern kannst beispielswe
 
 Damit wird die Toolbox tatsächlich zu etwas, das man **jeden Tag beim Programmieren öffnen kann**, statt nur zu einer Sammlung von kleinen Spielereien.
 
+
+
+
+
+
+Du übernimmst ein bereits bestehendes lokales Webprojekt namens „DevTools“.
+
+WICHTIG:
+Arbeite immer auf Basis der unten beschriebenen bestehenden Architektur.
+Erfinde keine neue Architektur, keine neuen Ordner und keine alternativen Dateinamen,
+wenn sie nicht ausdrücklich notwendig sind.
+
+Wenn ich dir eine bestehende Datei zeige, sollst du sie als aktuellen Stand behandeln
+und darauf aufbauen.
+
+==================================================
+1. PROJEKT
+==================================================
+
+Projektname:
+DevTools
+
+Ziel:
+Eine lokale Developer-Toolbox als HTML/CSS/JavaScript-Webseite.
+
+Das Projekt soll vollständig lokal funktionieren.
+Es soll insbesondere auch funktionieren, wenn index.html direkt über file:// geöffnet wird.
+
+Keine unnötigen Server-Abhängigkeiten.
+
+==================================================
+2. AKTUELLE DATEISTRUKTUR
+==================================================
+
+DevTools/
+│
+├── index.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   ├── app.js
+│   └── tools.js
+│
+├── shared/
+│   ├── tool.css
+│   └── tool.js
+│
+└── tools/
+    ├── tool.html
+    ├── tool.js
+    │
+    └── scripts/
+        ├── url-parser.js
+        ├── base64.js
+        ├── json-formatter.js
+        └── javascript-formatter.js
+
+Diese Struktur ist verbindlich.
+
+WICHTIG:
+Die eigentlichen Tool-JavaScript-Dateien liegen in:
+
+tools/scripts/
+
+Nicht direkt in:
+
+tools/
+
+==================================================
+3. ZENTRALE ARCHITEKTUR
+==================================================
+
+Es gibt eine zentrale Tool-Konfiguration:
+
+js/tools.js
+
+Dort befinden sich:
+
+TOOLS
+CATEGORIES
+
+TOOLS enthält die Daten aller Tools.
+
+Beispiel:
+
+const TOOLS = {
+
+    jsonFormatter: {
+        name: "JSON Formatter",
+        description: "JSON formatieren, minifizieren und validieren.",
+        icon: "{ }",
+        category: "code",
+        tags: "json formatter format minify validate",
+        script: "json-formatter.js",
+        comingSoon: false
+    }
+
+};
+
+Die Tool-ID ist der Schlüssel:
+
+jsonFormatter
+
+Diese ID wird verwendet, um das Tool aufzurufen:
+
+tools/tool.html?id=jsonFormatter
+
+==================================================
+4. CATEGORIES
+==================================================
+
+CATEGORIES definiert die Kategorien und deren Darstellung.
+
+Aktuelle Kategorien:
+
+web
+code
+data
+linux
+
+Die Kategorien sollen dynamisch aus CATEGORIES erzeugt werden.
+
+Die Tool-Sections auf der Startseite sollen NICHT fest im index.html
+eingetragen sein.
+
+Ebenso sollen die Tool-Karten NICHT manuell im index.html stehen.
+
+Stattdessen erzeugt app.js dynamisch:
+
+- Kategorien
+- Sections
+- Tool-Karten
+- Counts
+
+==================================================
+5. INDEX.HTML
+==================================================
+
+index.html enthält hauptsächlich:
+
+- Header
+- Theme Button
+- Suche
+- Container für dynamische Tool-Sections
+- Navigation
+- Toast
+
+Die eigentlichen Tool-Karten und Kategorien werden durch app.js erzeugt.
+
+NICHT wieder anfangen, für jede Kategorie statische HTML-Sections einzubauen.
+
+==================================================
+6. APP.JS
+==================================================
+
+js/app.js ist die Hauptlogik der Startseite.
+
+Es kümmert sich unter anderem um:
+
+- dynamisches Rendern der Kategorien
+- dynamisches Rendern der Tools
+- Tool-Karten
+- Öffnen von Tools
+- Favoriten
+- zuletzt verwendete Tools
+- Suche
+- Theme
+- Navigation
+- Toasts
+- localStorage
+
+Favoriten werden über:
+
+devtools-favorites
+
+gespeichert.
+
+Zuletzt verwendete Tools über:
+
+devtools-recent
+
+Theme über:
+
+devtools-theme
+
+==================================================
+7. TOOL-KARTEN
+==================================================
+
+Tool-Karten werden aus TOOLS erzeugt.
+
+Eine Karte enthält mindestens:
+
+- Icon
+- Name
+- Beschreibung
+- Kategorie
+- Tags
+
+Klick auf eine Karte öffnet:
+
+tools/tool.html?id=TOOL_ID
+
+Beispiel:
+
+tools/tool.html?id=base64
+
+Auch Karten unter:
+
+- Favoriten
+- Zuletzt verwendet
+
+müssen anklickbar sein und dasselbe Tool öffnen.
+
+Der Favoriten-Button darf den Karten-Klick nicht auslösen.
+Dafür event.stopPropagation() verwenden.
+
+==================================================
+8. UNIVERSELLE TOOL-SEITE
+==================================================
+
+Die Datei:
+
+tools/tool.html
+
+ist die universelle Seite für ALLE Tools.
+
+Sie enthält unter anderem:
+
+- Header
+- Zurück-Button
+- Tool-Icon
+- Tool-Titel
+- Tool-Beschreibung
+- tool-container
+
+Das eigentliche Tool wird dynamisch in:
+
+#tool-container
+
+eingefügt.
+
+==================================================
+9. TOOLS/TOOL.JS
+==================================================
+
+SEHR WICHTIG:
+
+tools/tool.js ist der universelle Tool-Loader.
+
+Er liest:
+
+?id=...
+
+aus der URL.
+
+Dann:
+
+const tool = TOOLS[toolId];
+
+Danach lädt er die zum Tool gehörige Datei.
+
+Da die Tool-Dateien in tools/scripts/ liegen, muss der Pfad sein:
+
+scripts/${tool.script}
+
+NICHT:
+
+../tools/${tool.script}
+
+und NICHT:
+
+${tool.script}
+
+Die Struktur ist:
+
+tools/tool.html
+tools/tool.js
+tools/scripts/base64.js
+
+Daher:
+
+script.src = `scripts/${tool.script}`;
+
+==================================================
+10. SHARED/TOOL.JS
+==================================================
+
+shared/tool.js enthält gemeinsames Verhalten für alle Tool-Seiten:
+
+- Theme
+- Zurück-Navigation
+- Clipboard
+- Statusmeldungen
+- Helper-Funktionen
+
+Dazu gehören unter anderem:
+
+showToolStatus()
+copyToClipboard()
+getElement()
+getValue()
+setValue()
+
+Tool-spezifische Dateien dürfen diese Funktionen verwenden.
+
+==================================================
+11. TOOL-SKRIPTE
+==================================================
+
+Jedes einzelne Tool bekommt eine eigene Datei:
+
+tools/scripts/
+
+Beispiele:
+
+url-parser.js
+base64.js
+json-formatter.js
+javascript-formatter.js
+
+Jedes Tool verwendet:
+
+function initTool() {
+
+    ...
+
+}
+
+Der universelle Loader ruft nach dem Laden:
+
+initTool();
+
+auf.
+
+Das Tool soll seinen Inhalt selbst in:
+
+#tool-container
+
+einfügen.
+
+==================================================
+12. BESTEHENDE TOOLS
+==================================================
+
+Aktuell vorhanden bzw. geplant:
+
+- URL Parser
+- Base64
+- JSON Formatter
+- JavaScript Formatter
+
+Weitere geplante Tools können bereits in TOOLS eingetragen werden.
+
+Für noch nicht implementierte Tools:
+
+comingSoon: true
+
+verwenden.
+
+Wenn ein Tool fertig implementiert wurde:
+
+comingSoon: false
+
+==================================================
+13. JSON FORMATTER
+==================================================
+
+Der JSON Formatter gehört zur Kategorie:
+
+code
+
+Datei:
+
+tools/scripts/json-formatter.js
+
+Er soll mindestens können:
+
+- JSON formatieren
+- JSON minifizieren
+- JSON validieren
+- Beispiel laden
+- Leeren
+- Kopieren
+- verständliche Fehlermeldungen
+
+==================================================
+14. JAVASCRIPT FORMATTER
+==================================================
+
+Der JavaScript Formatter gehört ebenfalls zu:
+
+code
+
+Datei:
+
+tools/scripts/javascript-formatter.js
+
+Er soll JavaScript-Code formatieren.
+
+Wichtig:
+JavaScript ist NICHT dasselbe wie JSON.
+
+Die Datei:
+
+js/tools.js
+
+enthält echtes JavaScript:
+
+const TOOLS = {
+    ...
+};
+
+Daher darf ein JavaScript Formatter nicht einfach JSON.parse()
+verwenden.
+
+==================================================
+15. URL PARSER
+==================================================
+
+Der URL Parser gehört zu:
+
+web
+
+Datei:
+
+tools/scripts/url-parser.js
+
+Er analysiert URLs mit:
+
+new URL()
+
+und zeigt unter anderem:
+
+- href
+- protocol
+- username
+- password
+- hostname
+- port
+- host
+- pathname
+- search
+- hash
+- origin
+- queryParameters
+
+==================================================
+16. BASE64
+==================================================
+
+Base64 gehört aktuell zu:
+
+code
+
+Datei:
+
+tools/scripts/base64.js
+
+Geplant:
+
+- Text → Base64
+- Base64 → Text
+- UTF-8-Unterstützung
+- Beispiel
+- Leeren
+- Kopieren
+
+==================================================
+17. DESIGN
+==================================================
+
+Das bestehende Design soll weiterverwendet werden.
+
+Keine neue CSS-Architektur erfinden.
+
+Vorhanden:
+
+css/style.css
+
+shared/tool.css
+
+Tool-Seiten sollen die bestehenden Klassen verwenden, z. B.:
+
+tool-panel
+tool-panel-header
+tool-panel-title
+tool-panel-description
+tool-textarea
+tool-actions
+tool-button
+tool-status
+
+Wenn eine bestehende CSS-Klasse bereits das gewünschte Verhalten ermöglicht,
+keine neue Klasse erfinden.
+
+==================================================
+18. WICHTIGSTE REGEL
+==================================================
+
+NICHT unnötig bestehende Dateien umbauen.
+
+Wenn ich sage:
+
+„Baue Tool X“
+
+dann ändere möglichst nur:
+
+1. js/tools.js
+2. tools/scripts/tool-x.js
+
+und nur weitere Dateien, wenn es wirklich notwendig ist.
+
+==================================================
+19. BEI FEHLERN
+==================================================
+
+Wenn ich einen Fehler aus der Browser-Konsole sende:
+
+- analysiere zuerst die genaue Ursache
+- prüfe die bestehende Architektur
+- ändere nicht einfach mehrere Dateien gleichzeitig
+- erkläre mir kurz, welche Datei betroffen ist
+- gib mir anschließend die konkrete korrigierte Datei bzw. den relevanten Code
+
+Keine komplette Neuarchitektur wegen eines kleinen Fehlers.
+
+==================================================
+20. DATEIEN IMMER KLAR BENENNEN
+==================================================
+
+Wenn du mir eine Datei gibst, schreibe immer zuerst:
+
+DATEI:
+tools/scripts/example.js
+
+und danach den vollständigen Inhalt.
+
+Verwende eindeutige Dateinamen.
+
+Beispiel:
+
+json-formatter.js
+javascript-formatter.js
+url-parser.js
+
+Nicht:
+
+tool.js
+formatter.js
+parser.js
+
+wenn dadurch Verwechslungen entstehen.
+
+==================================================
+21. KEINE RÜCKFRAGEN BEI KLAREN AUFGABEN
+==================================================
+
+Wenn die Aufgabe aus dem Kontext eindeutig ist,
+setze sie direkt um.
+
+Wenn dir eine bestehende Datei fehlt und du sie für eine Änderung
+wirklich brauchst, fordere genau diese Datei an.
+
+Nicht einfach Annahmen über deren aktuellen Inhalt treffen.
+
+==================================================
+22. ENTSCHEIDUNGSHIERARCHIE
+==================================================
+
+Bei Änderungen gilt:
+
+1. Bestehende Architektur erhalten
+2. Bestehende Dateien wiederverwenden
+3. Bestehende CSS-Klassen wiederverwenden
+4. Zentrale TOOLS-Struktur verwenden
+5. Dynamisches Rendering beibehalten
+6. Nur notwendige Dateien ändern
+7. Keine unnötigen neuen Ordner oder Systeme einführen
+
+==================================================
+23. WIE DU MIT MIR ARBEITEN SOLLST
+==================================================
+
+Ich bin dabei, das Projekt Schritt für Schritt zu erweitern.
+
+Wenn ich dir Code sende, behandle ihn als meinen aktuellen Stand.
+
+Wenn ich sage „ändere das“, sollst du auf genau diesem Stand aufbauen.
+
+Wenn du einen vollständigen Dateicode lieferst,
+soll er direkt kopierbar sein.
+
+Wenn mehrere Dateien geändert werden müssen,
+liste zuerst auf:
+
+GEÄNDERTE DATEIEN:
+- ...
+- ...
+
+und gib danach jede Datei vollständig aus.
+
+==================================================
+ENDE DES PROJEKTKONTEXTS
+==================================================
+
+Noch besser: eine Sache würde ich bei einem neuen Chat zusätzlich machen
+
+Direkt nach diesem Prompt würde ich die aktuell wichtigsten Dateien anhängen bzw. hineinkopieren:
+
+js/tools.js
+js/app.js
+tools/tool.html
+tools/tool.js
+shared/tool.js
+shared/tool.css
+css/style.css
+
+Denn der Prompt beschreibt die Architektur, aber der tatsächliche aktuelle Code ist die Wahrheit. Gerade bei app.js und tools.js ist das wichtig, weil wir dort bereits einiges angepasst haben.
+
+Dann schreibst du als letzten Satz beispielsweise:
+
+„Das ist der aktuelle Projektstand. Bitte ändere nichts, bis ich dir meine nächste Aufgabe gebe. Wenn etwas unklar ist, frage nur nach der konkret benötigten Datei.“
+
+Damit sollte ein neuer Chat wesentlich weniger dazu neigen, wieder Dinge wie tools/scripts/ zu vergessen oder funktionierende Teile unnötig umzubauen.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>DevTools</title>
+
+    <script>
+
+        const savedTheme =
+            localStorage.getItem("devtools-theme");
+
+        if (savedTheme === "light") {
+
+            document.documentElement.classList.add(
+                "light-theme"
+            );
+
+        }
+
+    </script>
+
+    <link
+        rel="stylesheet"
+        href="../shared/tool.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="tool-app">
+
+
+    <!-- HEADER -->
+
+    <header class="tool-header">
+
+        <button
+            class="tool-back"
+            id="tool-back"
+            type="button"
+            aria-label="Zurück"
+        >
+            ←
+        </button>
+
+
+        <div
+            class="tool-icon"
+            id="tool-icon"
+        >
+            🧰
+        </div>
+
+
+        <div class="tool-header-info">
+
+            <h1 id="tool-title">
+                DevTools
+            </h1>
+
+            <p id="tool-description">
+                Developer Toolbox
+            </p>
+
+        </div>
+
+
+        <button
+            class="tool-theme"
+            id="tool-theme"
+            type="button"
+            aria-label="Theme wechseln"
+        >
+            ☀️
+        </button>
+
+    </header>
+
+
+    <!-- TOOL CONTENT -->
+
+    <main
+        class="tool-main"
+        id="tool-container"
+    >
+
+        <!-- Das eigentliche Tool
+             wird hier eingefügt -->
+
+    </main>
+
+
+</div>
+
+
+<script src="../js/tools.js"></script>
+
+<script src="../shared/tool.js"></script>
+
+<script src="tool.js"></script>
+
+</body>
+
+</html>
