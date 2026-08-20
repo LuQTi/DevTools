@@ -500,6 +500,10 @@ html.light-theme .header {
 
 .tool-icon {
 
+   font-family:
+        "JetBrains Mono",
+        monospace;
+
     width: 40px;
     height: 40px;
 
@@ -516,8 +520,10 @@ html.light-theme .header {
 
     font-family: var(--mono);
 
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
+
+    letter-spacing: -1px;
 }
 
 

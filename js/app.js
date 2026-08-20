@@ -56,6 +56,9 @@ const STORAGE_KEYS = {
 };
 
 
+const RECENT_LIMIT = 8;
+
+
 /* ============================================
    INIT
 ============================================ */
@@ -273,9 +276,7 @@ function createToolCard(toolId, tool = TOOLS[toolId]) {
 
         <div class="tool-card-top">
 
-            <div class="tool-icon">
-                ${tool.icon || "🛠️"}
-            </div>
+            <div class="tool-icon"></div>
 
             ${
                 tool.comingSoon
@@ -300,6 +301,22 @@ function createToolCard(toolId, tool = TOOLS[toolId]) {
         </p>
 
     `;
+
+
+    /* ========================================
+       ICON ALS TEXT SETZEN
+    ======================================== */
+
+    const iconElement =
+        card.querySelector(".tool-icon");
+
+
+    if (iconElement) {
+
+        iconElement.textContent =
+            tool.icon || "🛠️";
+
+    }
 
 
     return card;
@@ -745,9 +762,45 @@ function getRecent() {
             JSON.parse(saved);
 
 
-        return Array.isArray(recent)
-            ? recent
-            : [];
+        if (!Array.isArray(recent)) {
+
+            return [];
+
+        }
+
+
+        /*
+         * Nur Tools behalten,
+         * die aktuell in TOOLS existieren.
+         */
+
+        const validRecent =
+            recent.filter(
+                toolId =>
+                    Boolean(
+                        TOOLS[toolId]
+                    )
+            );
+
+
+        /*
+         * Bereinigte Liste speichern,
+         * falls alte IDs vorhanden waren.
+         */
+
+        if (
+            validRecent.length !==
+            recent.length
+        ) {
+
+            saveRecent(
+                validRecent
+            );
+
+        }
+
+
+        return validRecent;
 
     } catch {
 
@@ -772,9 +825,7 @@ function saveRecent(
 }
 
 
-function addToRecent(
-    toolId
-) {
+function addToRecent(toolId) {
 
     let recent =
         getRecent();
@@ -795,7 +846,7 @@ function addToRecent(
     recent =
         recent.slice(
             0,
-            5
+            RECENT_LIMIT
         );
 
 

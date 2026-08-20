@@ -1,5 +1,5 @@
 /* ============================================
-   DEVTOOLS - TOOLS
+   DEVTOOLS - TOOL REGISTRY
 ============================================ */
 
 
@@ -9,28 +9,69 @@
 
 const CATEGORIES = {
 
-    web: {
-        name: "Web",
-        icon: "🌐",
+    formatters: {
+
+        name: "Formatter",
+
+        icon: "✨",
+
         order: 1
+
     },
 
-    code: {
-        name: "Code",
-        icon: "💻",
+
+    encoders: {
+
+        name: "Encoder",
+
+        icon: "🔐",
+
         order: 2
+
     },
 
-    data: {
-        name: "Daten",
-        icon: "📊",
+
+    parsers: {
+
+        name: "Parser",
+
+        icon: "🔎",
+
         order: 3
+
     },
 
-    linux: {
-        name: "Linux",
-        icon: "🐧",
+
+    generators: {
+
+        name: "Generator",
+
+        icon: "⚡",
+
         order: 4
+
+    },
+
+
+    converters: {
+
+        name: "Converter",
+
+        icon: "⇄",
+
+        order: 5
+
+    },
+
+
+    validators: {
+
+        name: "Validator",
+
+        icon: "✓",
+
+        order: 6
+
     }
 
 };
@@ -44,362 +85,1081 @@ const TOOLS = {
 
 
     /* ========================================
-       WEB
+       FORMATTERS
     ======================================== */
 
-    "url-encoder-decoder": {
+    jsonFormatter: {
 
-        name: "URL Encoder / Decoder",
+        name: "JSON Formatter",
 
         description:
-            "URLs encodieren und decodieren.",
+            "JSON formatieren, einrücken und minifizieren.",
 
-        icon: "🔗",
+        icon: "{ }",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "url encode decode encoder decoder uri",
+            "json formatter pretty print beautify minify format",
 
         script:
-            "scripts/url-encoder-decoder.js"
+            "formatters/json-formatter.js",
+
+        comingSoon: false
 
     },
 
 
-    "url-parser": {
+    javascriptFormatter: {
 
-        name: "URL Parser",
+        name: "JavaScript Formatter",
 
         description:
-            "Analysiert eine URL und zeigt ihre einzelnen Bestandteile.",
+            "JavaScript-Code automatisch formatieren und einrücken.",
 
-        icon: "🔍",
+        icon: "JS",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "url parser analyse hostname protocol port path query parameter",
+            "javascript js formatter beautify pretty print format code",
 
         script:
-            "scripts/url-parser.js"
+            "formatters/javascript-formatter.js",
+
+        comingSoon: false
 
     },
 
 
-    "html-formatter": {
+    htmlFormatter: {
 
         name: "HTML Formatter",
 
         description:
             "HTML-Code automatisch formatieren und übersichtlich einrücken.",
 
-        icon: "🌐",
+        icon: "</>",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "html formatter format beautify code",
+            "html formatter beautify pretty print format markup web code",
 
         script:
-            "scripts/html-formatter.js",
+            "formatters/html-formatter.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "css-formatter": {
+    cssFormatter: {
 
         name: "CSS Formatter",
 
         description:
             "CSS-Code automatisch formatieren und übersichtlich einrücken.",
 
-        icon: "🎨",
+        icon: "#",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "css formatter format beautify code",
+            "css formatter beautify pretty print format stylesheet web code",
 
         script:
-            "scripts/css-formatter.js",
+            "formatters/css-formatter.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "html-entity-encoder-decoder": {
+    xmlFormatter: {
 
-        name: "HTML Entity Encoder / Decoder",
+        name: "XML Formatter",
 
         description:
-            "HTML-Entities encodieren und decodieren.",
+            "XML-Code übersichtlich formatieren und einrücken.",
 
-        icon: "🔤",
+        icon: "XML",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "html entity encode decode entities",
+            "xml formatter beautify pretty print format markup code",
 
         script:
-            "scripts/html-entity-encoder-decoder.js",
+            "formatters/xml-formatter.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "color-converter": {
+    sqlFormatter: {
 
-        name: "Color Converter",
+        name: "SQL Formatter",
 
         description:
-            "Farben zwischen HEX, RGB und HSL umwandeln.",
+            "SQL-Abfragen übersichtlich formatieren und einrücken.",
 
-        icon: "🎨",
+        icon: "SQL",
 
-        category: "web",
+        category: "formatters",
 
         tags:
-            "color hex rgb hsl converter farbe",
+            "sql formatter beautify pretty print query database mysql postgresql",
 
         script:
-            "scripts/color-converter.js",
+            "formatters/sql-formatter.js",
 
-        comingSoon: true
+        comingSoon: false
+
+    },
+
+
+    phpFormatter: {
+
+        name: "PHP Formatter",
+
+        description:
+            "PHP-Code automatisch formatieren und einrücken.",
+
+        icon: "PHP",
+
+        category: "formatters",
+
+        tags:
+            "php formatter beautify pretty print format code",
+
+        script:
+            "formatters/php-formatter.js",
+
+        comingSoon: false
+
+    },
+
+
+    javaFormatter: {
+
+        name: "Java Formatter",
+
+        description:
+            "Java-Code automatisch formatieren und einrücken.",
+
+        icon: "☕",
+
+        category: "formatters",
+
+        tags:
+            "java formatter beautify pretty print format code",
+
+        script:
+            "formatters/java-formatter.js",
+
+        comingSoon: false
 
     },
 
 
     /* ========================================
-       CODE
+       ENCODERS
     ======================================== */
 
-    "base64-encoder-decoder": {
+    base64: {
 
         name: "Base64 Encoder / Decoder",
 
         description:
-            "Text mit Base64 encodieren und decodieren.",
+            "Text und Daten zwischen Klartext und Base64 umwandeln.",
 
         icon: "🔐",
 
-        category: "code",
+        category: "encoders",
 
         tags:
-            "base64 encode decode encoder decoder text",
+            "base64 encode decode encoder decoder text data binary",
 
         script:
-            "scripts/base64-encoder-decoder.js"
+            "encoders/base64-encoder-decoder.js",
+
+        comingSoon: false
 
     },
 
 
-    "regex-tester": {
+    urlEncoder: {
 
-        name: "Regex Tester",
+        name: "URL Encoder / Decoder",
 
         description:
-            "Reguläre Ausdrücke testen und passende Treffer anzeigen.",
+            "URL-Komponenten mit Percent-Encoding encodieren und decodieren.",
+
+        icon: "🔗",
+
+        category: "encoders",
+
+        tags:
+            "url uri percent encoding encode decode escape query parameter web",
+
+        script:
+            "encoders/url-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    htmlEntityEncoderDecoder: {
+
+        name: "HTML Entity Encoder / Decoder",
+
+        description:
+            "HTML-Sonderzeichen in Entities umwandeln und Entities wieder decodieren.",
+
+        icon: "&amp;",
+
+        category: "encoders",
+
+        tags:
+            "html entity entities encode decode escape unescape special characters",
+
+        script:
+            "encoders/html-entity-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    unicodeEncoderDecoder: {
+
+        name: "Unicode Encoder / Decoder",
+
+        description:
+            "Text in Unicode-Escape-Sequenzen umwandeln und wieder decodieren.",
+
+        icon: "🔤",
+
+        category: "encoders",
+
+        tags:
+            "unicode utf8 utf16 escape sequence encode decode characters codepoint",
+
+        script:
+            "encoders/unicode-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    hexEncoderDecoder: {
+
+        name: "Hex Encoder / Decoder",
+
+        description:
+            "Text und UTF-8-Bytes zwischen Klartext und Hexadezimaldarstellung umwandeln.",
+
+        icon: "0x",
+
+        category: "encoders",
+
+        tags:
+            "hex hexadecimal encode decode utf8 bytes byte text binary",
+
+        script:
+            "encoders/hex-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    asciiEncoderDecoder: {
+
+        name: "ASCII Encoder / Decoder",
+
+        description:
+            "ASCII-Zeichen in numerische Werte umwandeln und ASCII-Werte decodieren.",
+
+        icon: "A",
+
+        category: "encoders",
+
+        tags:
+            "ascii encode decode text characters character codes numeric values",
+
+        script:
+            "encoders/ascii-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    jwtEncoderDecoder: {
+
+        name: "JWT Encoder / Decoder",
+
+        description:
+            "JWTs decodieren, analysieren und signierte Test-Tokens erzeugen.",
+
+        icon: "JWT",
+
+        category: "encoders",
+
+        tags:
+            "jwt json web token decode encode token header payload claims authentication auth hs256",
+
+        script:
+            "encoders/jwt-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    binaryEncoderDecoder: {
+
+        name: "Binary Encoder / Decoder",
+
+        description:
+            "Text in binäre UTF-8-Bytes umwandeln und Binärdaten wieder decodieren.",
+
+        icon: "0101",
+
+        category: "encoders",
+
+        tags:
+            "binary bits bytes encode decode utf8 text bitstream base2",
+
+        script:
+            "encoders/binary-encoder-decoder.js",
+
+        comingSoon: false
+
+    },
+
+
+    /* ========================================
+       PARSERS
+    ======================================== */
+
+    urlParser: {
+
+        name: "URL Parser",
+
+        description:
+            "URLs analysieren und in ihre einzelnen Bestandteile zerlegen.",
 
         icon: "🔎",
 
-        category: "code",
+        category: "parsers",
 
         tags:
-            "regex regexp regular expression tester test pattern",
+            "url uri parser parse analyze analyse protocol scheme host hostname port path query parameters fragment",
 
         script:
-            "scripts/regex-tester.js",
+            "parsers/url-parser.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "javascript-formatter": {
+    jsonParser: {
 
-        name: "JavaScript Formatter",
+        name: "JSON Parser",
 
         description:
-            "JavaScript-Code automatisch formatieren und übersichtlich darstellen.",
+            "JSON analysieren, parsen und strukturiert darstellen.",
 
-        icon: "📜",
+        icon: "{ }",
 
-        category: "code",
+        category: "parsers",
 
         tags:
-            "javascript js formatter beautify format code",
+            "json parser parse analyze analyse object array data structure api",
 
         script:
-            "scripts/javascript-formatter.js",
+            "parsers/json-parser.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "jwt-decoder": {
+    jwtParser: {
 
-        name: "JWT Decoder",
+        name: "JWT Parser",
 
         description:
-            "JSON Web Tokens analysieren und deren Header und Payload anzeigen.",
+            "JWTs analysieren und Header, Payload und Claims anzeigen.",
 
-        icon: "🎫",
+        icon: "🔑",
 
-        category: "code",
+        category: "parsers",
 
         tags:
-            "jwt json web token decoder token",
+            "jwt json web token parser parse decode header payload claims authentication auth token",
 
         script:
-            "scripts/jwt-decoder.js",
+            "parsers/jwt-parser.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "uuid-generator": {
+    queryStringParser: {
 
-        name: "UUID Generator",
+        name: "Query String Parser",
 
         description:
-            "UUIDs schnell und einfach generieren.",
+            "Query-Strings analysieren und URL-Parameter übersichtlich darstellen.",
 
-        icon: "🆔",
+        icon: "?=",
 
-        category: "code",
+        category: "parsers",
 
         tags:
-            "uuid guid generator random id",
+            "query string parser url parameters search params parse decode key value web api",
 
         script:
-            "scripts/uuid-generator.js",
+            "parsers/query-string-parser.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "hash-generator": {
+    cookieParser: {
+
+        name: "Cookie Parser",
+
+        description:
+            "Cookie-Strings analysieren und in einzelne Cookies und Attribute zerlegen.",
+
+        icon: "🍪",
+
+        category: "parsers",
+
+        tags:
+            "cookie cookies parser parse http header web browser session attributes",
+
+        script:
+            "parsers/cookie-parser.js",
+
+        comingSoon: false
+
+    },
+
+
+    httpHeaderParser: {
+
+        name: "HTTP Header Parser",
+
+        description:
+            "HTTP-Header analysieren und in einzelne Name-Wert-Paare zerlegen.",
+
+        icon: "📨",
+
+        category: "parsers",
+
+        tags:
+            "http header parser parse request response api web content type authorization cache cors",
+
+        script:
+            "parsers/http-header-parser.js",
+
+        comingSoon: false
+
+    },
+
+
+    userAgentParser: {
+
+        name: "User-Agent Parser",
+
+        description:
+            "User-Agent-Strings analysieren und Browser, Betriebssystem und Gerät erkennen.",
+
+        icon: "🌐",
+
+        category: "parsers",
+
+        tags:
+            "user agent ua parser parse browser browser engine operating system os device http web",
+
+        script:
+            "parsers/user-agent-parser.js",
+
+        comingSoon: false
+
+    },
+
+
+    cronParser: {
+
+        name: "Cron Parser",
+
+        description:
+            "Cron-Ausdrücke analysieren und Zeitpläne verständlich darstellen.",
+
+        icon: "⏱️",
+
+        category: "parsers",
+
+        tags:
+            "cron crontab parser parse schedule scheduler linux unix automation job timing",
+
+        script:
+            "parsers/cron-parser.js",
+
+        comingSoon: false
+
+    },
+
+
+    /* ========================================
+       GENERATORS
+    ======================================== */
+
+    hashGenerator: {
 
         name: "Hash Generator",
 
         description:
-            "Hashes für eingegebene Texte berechnen.",
+            "Hashwerte mit verschiedenen Algorithmen erzeugen.",
 
-        icon: "#️⃣",
+        icon: "#",
 
-        category: "code",
+        category: "generators",
 
         tags:
-            "hash md5 sha1 sha256 sha512 checksum",
+            "hash generator sha1 sha256 sha384 sha512 digest checksum cryptographic",
 
         script:
-            "scripts/hash-generator.js",
+            "generators/hash-generator.js",
 
-        comingSoon: true
+        comingSoon: false
+
+    },
+
+
+    uuidGenerator: {
+
+        name: "UUID Generator",
+
+        description:
+            "UUIDs für Datenbanken, APIs und Anwendungen generieren.",
+
+        icon: "🆔",
+
+        category: "generators",
+
+        tags:
+            "uuid guid generator random unique identifier id v4",
+
+        script:
+            "generators/uuid-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    passwordGenerator: {
+
+        name: "Password Generator",
+
+        description:
+            "Zufällige Passwörter für Tests und Entwicklungsumgebungen generieren.",
+
+        icon: "🔑",
+
+        category: "generators",
+
+        tags:
+            "password passphrase generator random secure credentials development testing",
+
+        script:
+            "generators/password-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    randomStringGenerator: {
+
+        name: "Random String Generator",
+
+        description:
+            "Zufällige Zeichenfolgen für Tokens, Testdaten und IDs generieren.",
+
+        icon: "🔀",
+
+        category: "generators",
+
+        tags:
+            "random string generator token id identifier test data random characters",
+
+        script:
+            "generators/random-string-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    timestampGenerator: {
+
+        name: "Timestamp Generator",
+
+        description:
+            "Unix-Timestamps für APIs, Datenbanken und Logs erzeugen.",
+
+        icon: "🕐",
+
+        category: "generators",
+
+        tags:
+            "timestamp unix epoch time generator date datetime api database logs",
+
+        script:
+            "generators/timestamp-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    jsonGenerator: {
+
+        name: "JSON Generator",
+
+        description:
+            "JSON-Testdaten für APIs, Anwendungen und Entwicklung generieren.",
+
+        icon: "{ }",
+
+        category: "generators",
+
+        tags:
+            "json generator test data mock data api object array development",
+
+        script:
+            "generators/json-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    htmlBoilerplateGenerator: {
+
+        name: "HTML Boilerplate Generator",
+
+        description:
+            "Eine vollständige HTML5-Grundstruktur für neue Webseiten erzeugen.",
+
+        icon: "</>",
+
+        category: "generators",
+
+        tags:
+            "html html5 boilerplate template starter page website doctype meta viewport",
+
+        script:
+            "generators/html-boilerplate-generator.js",
+
+        comingSoon: false
+
+    },
+
+
+    cssGradientGenerator: {
+
+        name: "CSS Gradient Generator",
+
+        description:
+            "CSS-Gradienten erstellen und direkt als CSS-Code verwenden.",
+
+        icon: "🌈",
+
+        category: "generators",
+
+        tags:
+            "css gradient generator linear radial conic background color web design",
+
+        script:
+            "generators/css-gradient-generator.js",
+
+        comingSoon: false
 
     },
 
 
     /* ========================================
-       DATA
+       CONVERTERS
     ======================================== */
 
-javascriptFormatter: {
-    name: "JavaScript Formatter",
-    description: "JavaScript-Code automatisch formatieren und einrücken.",
-    icon: "JS",
-    category: "code",
-    tags: "javascript js formatter format code beautify",
-    script: "scripts/javascript-formatter.js",
-    comingSoon: false
-},
+    colorConverter: {
 
-jsonFormatter: {
-    name: "JSON Formatter",
-    description: "JSON formatieren, minifizieren und validieren.",
-    icon: "{ }",
-    category: "code",
-    tags: "json formatter minify validate format",
-    script: "scripts/json-formatter.js",
-    comingSoon: false
-},
-
-
-    "json-validator": {
-
-        name: "JSON Validator",
+        name: "Color Converter",
 
         description:
-            "JSON überprüfen und Syntaxfehler erkennen.",
+            "Farben zwischen HEX, RGB, RGBA und HSL umwandeln.",
 
-        icon: "✅",
+        icon: "🎨",
 
-        category: "data",
+        category: "converters",
 
         tags:
-            "json validator validate prüfen syntax error",
+            "color converter hex rgb rgba hsl hsla css color web",
 
         script:
-            "scripts/json-validator.js",
+            "converters/color-converter.js",
 
-        comingSoon: true
+        comingSoon: false
 
     },
 
 
-    "timestamp-converter": {
+    numberBaseConverter: {
+
+        name: "Number Base Converter",
+
+        description:
+            "Zahlen zwischen Binär, Dezimal, Hexadezimal und Oktal umwandeln.",
+
+        icon: "🔢",
+
+        category: "converters",
+
+        tags:
+            "number base converter binary decimal hexadecimal hex octal radix base2 base8 base10 base16",
+
+        script:
+            "converters/number-base-converter.js",
+
+        comingSoon: false
+
+    },
+
+
+    timestampConverter: {
 
         name: "Timestamp Converter",
 
         description:
-            "Unix-Timestamps in lesbare Datumswerte umwandeln und umgekehrt.",
+            "Unix-Timestamps in Datum und Uhrzeit umwandeln und umgekehrt.",
 
         icon: "🕐",
 
-        category: "data",
+        category: "converters",
 
         tags:
-            "timestamp unix date time converter datum zeit",
+            "timestamp unix epoch time converter date datetime iso8601 api database",
 
         script:
-            "scripts/timestamp-converter.js",
+            "converters/timestamp-converter.js",
 
-        comingSoon: true
+        comingSoon: false
+
+    },
+
+
+    jsonYamlConverter: {
+
+        name: "JSON ↔ YAML Converter",
+
+        description:
+            "JSON und YAML ineinander umwandeln.",
+
+        icon: "🔄",
+
+        category: "converters",
+
+        tags:
+            "json yaml converter convert configuration config data api serialization",
+
+        script:
+            "converters/json-yaml-converter.js",
+
+        comingSoon: false
+
+    },
+
+
+    jsonXmlConverter: {
+
+        name: "JSON ↔ XML Converter",
+
+        description:
+            "JSON und XML ineinander umwandeln.",
+
+        icon: "🔄",
+
+        category: "converters",
+
+        tags:
+            "json xml converter convert data api markup serialization web",
+
+        script:
+            "converters/json-xml-converter.js",
+
+        comingSoon: false
+
+    },
+
+
+    csvJsonConverter: {
+
+        name: "CSV ↔ JSON Converter",
+
+        description:
+            "CSV-Daten in JSON umwandeln und JSON als CSV exportieren.",
+
+        icon: "📊",
+
+        category: "converters",
+
+        tags:
+            "csv json converter convert data table spreadsheet rows columns export import",
+
+        script:
+            "converters/csv-json-converter.js",
+
+        comingSoon: false
+
+    },
+
+
+    htmlEntityConverter: {
+
+        name: "HTML Entity Converter",
+
+        description:
+            "HTML-Zeichen in Entities umwandeln und HTML-Entities decodieren.",
+
+        icon: "🔤",
+
+        category: "converters",
+
+        tags:
+            "html entity entities converter encode decode escape unescape special characters web",
+
+        script:
+            "converters/html-entity-converter.js",
+
+        comingSoon: false
+
+    },
+
+
+    bytesConverter: {
+
+        name: "Bytes Converter",
+
+        description:
+            "Speichergrößen zwischen Byte, KB, MB, GB, TB und PB umwandeln.",
+
+        icon: "💾",
+
+        category: "converters",
+
+        tags:
+            "bytes byte converter kb mb gb tb pb kib mib gib storage size data",
+
+        script:
+            "converters/bytes-converter.js",
+
+        comingSoon: false
 
     },
 
 
     /* ========================================
-       LINUX
+       VALIDATORS
     ======================================== */
 
-    "unix-permissions-calculator": {
+    jsonValidator: {
 
-        name: "Unix Permissions Calculator",
+        name: "JSON Validator",
 
         description:
-            "Linux- und Unix-Dateirechte berechnen und umwandeln.",
+            "JSON prüfen und Syntaxfehler verständlich anzeigen.",
 
-        icon: "🔐",
+        icon: "{}",
 
-        category: "linux",
+        category: "validators",
 
         tags:
-            "linux unix chmod permissions permissions calculator rechte",
+            "json validator validate syntax error parse object array api data",
 
         script:
-            "scripts/unix-permissions-calculator.js",
+            "validators/json-validator.js",
 
-        comingSoon: true
+        comingSoon: false
+
+    },
+
+
+    htmlValidator: {
+
+        name: "HTML Validator",
+
+        description:
+            "HTML-Struktur prüfen und häufige Syntaxfehler anzeigen.",
+
+        icon: "HTML",
+
+        category: "validators",
+
+        tags:
+            "html validator validate syntax markup structure elements attributes web",
+
+        script:
+            "validators/html-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    cssValidator: {
+
+        name: "CSS Validator",
+
+        description:
+            "CSS auf Syntaxfehler und ungültige Regeln prüfen.",
+
+        icon: "CSS",
+
+        category: "validators",
+
+        tags:
+            "css validator validate syntax stylesheet rules properties selectors web",
+
+        script:
+            "validators/css-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    javascriptValidator: {
+
+        name: "JavaScript Validator",
+
+        description:
+            "JavaScript auf Syntaxfehler prüfen und Fehlerposition anzeigen.",
+
+        icon: "JS",
+
+        category: "validators",
+
+        tags:
+            "javascript js validator validate syntax error code parsing ecmascript",
+
+        script:
+            "validators/javascript-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    xmlValidator: {
+
+        name: "XML Validator",
+
+        description:
+            "XML auf Syntaxfehler und korrekte Verschachtelung prüfen.",
+
+        icon: "XML",
+
+        category: "validators",
+
+        tags:
+            "xml validator validate syntax markup structure elements attributes well formed",
+
+        script:
+            "validators/xml-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    urlValidator: {
+
+        name: "URL Validator",
+
+        description:
+            "URLs auf eine gültige Struktur prüfen und Bestandteile anzeigen.",
+
+        icon: "URL",
+
+        category: "validators",
+
+        tags:
+            "url uri validator validate syntax protocol scheme host hostname port path query fragment http https",
+
+        script:
+            "validators/url-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    uuidValidator: {
+
+        name: "UUID Validator",
+
+        description:
+            "UUIDs prüfen und Version sowie Variant erkennen.",
+
+        icon: "UUID",
+
+        category: "validators",
+
+        tags:
+            "uuid guid validator validate identifier format version variant v1 v4 v7",
+
+        script:
+            "validators/uuid-validator.js",
+
+        comingSoon: false
+
+    },
+
+
+    regexValidator: {
+
+        name: "Regex Validator",
+
+        description:
+            "Reguläre Ausdrücke auf gültige Syntax prüfen und mit Testtexten testen.",
+
+        icon: ".*",
+
+        category: "validators",
+
+        tags:
+            "regex regexp regular expression validator validate pattern syntax test match flags",
+
+        script:
+            "validators/regex-validator.js",
+
+        comingSoon: false
 
     }
 

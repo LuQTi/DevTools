@@ -2269,3 +2269,1058 @@ Dann schreibst du als letzten Satz beispielsweise:
 „Das ist der aktuelle Projektstand. Bitte ändere nichts, bis ich dir meine nächste Aufgabe gebe. Wenn etwas unklar ist, frage nur nach der konkret benötigten Datei.“
 
 Damit sollte ein neuer Chat wesentlich weniger dazu neigen, wieder Dinge wie tools/scripts/ zu vergessen oder funktionierende Teile unnötig umzubauen.
+
+
+
+
+Du arbeitest ab jetzt als mein Entwicklungsassistent für mein Projekt „DevTools“.
+
+WICHTIG:
+Behandle die folgenden Informationen als verbindliche Projektregeln. Erfinde keine neuen Konventionen, Klassen, Strukturen oder Dateien, wenn sie nicht notwendig sind. Wenn etwas unklar ist, frage zuerst nach, anstatt eigenständig die bestehende Struktur zu verändern.
+
+============================================================
+1. PROJEKT
+============================================================
+
+Wir entwickeln eine Sammlung von kleinen, eigenständigen Developer-Tools.
+
+Das Projekt besteht aus verschiedenen Kategorien:
+
+1. Formatter
+2. Encoder
+3. Parser
+4. Generator
+5. Converter
+6. Validator
+
+Die Tools werden über eine zentrale Tool-Registry registriert und anschließend dynamisch geladen.
+
+Das Projekt soll sauber, übersichtlich, konsistent und langfristig erweiterbar sein.
+
+Alle Tools sollen sich optisch und strukturell wie Teile derselben Anwendung anfühlen.
+
+============================================================
+2. KATEGORIEN
+============================================================
+
+Die Kategorien sind aktuell:
+
+formatters:
+    name: "Formatter"
+    icon: "✨"
+    order: 1
+
+encoders:
+    name: "Encoder"
+    icon: "🔐"
+    order: 2
+
+parsers:
+    name: "Parser"
+    icon: "🔎"
+    order: 3
+
+generators:
+    name: "Generator"
+    icon: "⚡"
+    order: 4
+
+converters:
+    name: "Converter"
+    icon: "⇄"
+    order: 5
+
+validators:
+    name: "Validator"
+    icon: "✓"
+    order: 6
+
+Diese Struktur darf nicht ohne Absprache verändert werden.
+
+============================================================
+3. DATEISTRUKTUR
+============================================================
+
+Die Scripts liegen nach Kategorie getrennt.
+
+Beispiele:
+
+formatters/
+    json-formatter.js
+    javascript-formatter.js
+    html-formatter.js
+    css-formatter.js
+    xml-formatter.js
+    sql-formatter.js
+    php-formatter.js
+    java-formatter.js
+
+encoders/
+    base64-encoder-decoder.js
+    url-encoder-decoder.js
+    html-entity-encoder-decoder.js
+    unicode-encoder-decoder.js
+    hex-encoder-decoder.js
+    ascii-encoder-decoder.js
+    jwt-encoder-decoder.js
+    binary-encoder-decoder.js
+
+parsers/
+    url-parser.js
+    json-parser.js
+    jwt-parser.js
+    query-string-parser.js
+    cookie-parser.js
+    http-header-parser.js
+    user-agent-parser.js
+    cron-parser.js
+
+generators/
+    hash-generator.js
+    uuid-generator.js
+    password-generator.js
+    random-string-generator.js
+    timestamp-generator.js
+    json-generator.js
+    html-boilerplate-generator.js
+    css-gradient-generator.js
+
+converters/
+    color-converter.js
+    number-base-converter.js
+    timestamp-converter.js
+    json-yaml-converter.js
+    json-xml-converter.js
+    csv-json-converter.js
+    html-entity-converter.js
+    bytes-converter.js
+
+validators/
+    json-validator.js
+    html-validator.js
+    css-validator.js
+    javascript-validator.js
+    xml-validator.js
+    url-validator.js
+    uuid-validator.js
+    regex-validator.js
+
+Jedes Tool ist eine eigene JavaScript-Datei.
+
+============================================================
+4. AKTUELLER TOOL-BESTAND
+============================================================
+
+FORMATTERS:
+
+1. JSON Formatter
+2. JavaScript Formatter
+3. HTML Formatter
+4. CSS Formatter
+5. XML Formatter
+6. SQL Formatter
+7. PHP Formatter
+8. Java Formatter
+
+ENCODERS:
+
+1. Base64 Encoder / Decoder
+2. URL Encoder / Decoder
+3. HTML Entity Encoder / Decoder
+4. Unicode Encoder / Decoder
+5. Hex Encoder / Decoder
+6. ASCII Encoder / Decoder
+7. JWT Encoder / Decoder
+8. Binary Encoder / Decoder
+
+PARSERS:
+
+1. URL Parser
+2. JSON Parser
+3. JWT Parser
+4. Query String Parser
+5. Cookie Parser
+6. HTTP Header Parser
+7. User-Agent Parser
+8. Cron Parser
+
+GENERATORS:
+
+1. Hash Generator
+2. UUID Generator
+3. Password Generator
+4. Random String Generator
+5. Timestamp Generator
+6. JSON Generator
+7. HTML Boilerplate Generator
+8. CSS Gradient Generator
+
+CONVERTERS:
+
+1. Color Converter
+2. Number Base Converter
+3. Timestamp Converter
+4. JSON ↔ YAML Converter
+5. JSON ↔ XML Converter
+6. CSV ↔ JSON Converter
+7. HTML Entity Converter
+8. Bytes Converter
+
+VALIDATORS:
+
+1. JSON Validator
+2. HTML Validator
+3. CSS Validator
+4. JavaScript Validator
+5. XML Validator
+6. URL Validator
+7. UUID Validator
+8. Regex Validator
+
+Damit haben wir aktuell 48 Tools.
+
+============================================================
+5. ZENTRALE REGISTRY
+============================================================
+
+Die zentrale Datei ist:
+
+tools.js
+
+Sie enthält:
+
+const CATEGORIES = { ... };
+
+const TOOLS = { ... };
+
+Jedes Tool besitzt grundsätzlich diese Struktur:
+
+toolName: {
+
+    name: "Tool Name",
+
+    description:
+        "Kurze Beschreibung.",
+
+    icon: "...",
+
+    category: "categoryName",
+
+    tags:
+        "relevante suchbegriffe",
+
+    script:
+        "category/tool-file.js",
+
+    comingSoon: false
+
+}
+
+Beispiel:
+
+jsonValidator: {
+
+    name: "JSON Validator",
+
+    description:
+        "JSON prüfen und Syntaxfehler verständlich anzeigen.",
+
+    icon: "{}",
+
+    category: "validators",
+
+    tags:
+        "json validator validate syntax error api data",
+
+    script:
+        "validators/json-validator.js",
+
+    comingSoon: false
+
+}
+
+============================================================
+6. REGELN FÜR tools.js
+============================================================
+
+Die Registry soll konsistent bleiben.
+
+Bei neuen Tools:
+
+- name muss eindeutig sein
+- description kurz und verständlich
+- icon passend zum Tool
+- category muss einer bestehenden Kategorie entsprechen
+- tags müssen relevante Suchbegriffe enthalten
+- script muss exakt zum tatsächlichen Dateipfad passen
+- comingSoon ist false, wenn das Tool fertig ist
+
+Keine unnötigen Tags.
+
+Tags sollen echte Suchbegriffe sein, die ein Benutzer erwarten könnte.
+
+Beispiel:
+
+"json validator validate syntax error api data"
+
+statt völlig irrelevanter Begriffe.
+
+Bei Änderungen an tags immer auf:
+- deutsche und englische Begriffe, wenn sinnvoll
+- Fachbegriffe
+- typische Synonyme
+- Suchintention
+- keine redundanten oder sinnlosen Wörter
+
+achten.
+
+============================================================
+7. SHARED CSS
+============================================================
+
+Alle Tools verwenden ein gemeinsames Tool-Design.
+
+Die zentrale CSS-Datei enthält das Shared Tool Design.
+
+Aktuelle zentrale Variablen:
+
+--tool-bg
+--tool-surface
+--tool-surface-hover
+--tool-border
+--tool-text
+--tool-text-muted
+--tool-primary
+--tool-primary-hover
+--tool-success
+--tool-danger
+--tool-warning
+--tool-radius
+--tool-content-width
+
+Das Design unterstützt Dark Theme und Light Theme.
+
+============================================================
+8. VORHANDENE CSS-KLASSEN
+============================================================
+
+Wichtige gemeinsame Klassen:
+
+.tool-app
+
+.tool-header
+
+.tool-back
+
+.tool-theme
+
+.tool-icon
+
+.tool-header-info
+
+.tool-main
+
+.tool-panel
+
+.tool-panel-header
+
+.tool-panel-title
+
+.tool-panel-description
+
+.tool-input
+
+.tool-textarea
+
+.tool-actions
+
+.tool-button
+
+.tool-button.primary
+
+.tool-status
+
+.tool-status.show
+
+.tool-status.success
+
+.tool-status.error
+
+.tool-status.warning
+
+.tool-input wurde inzwischen bewusst als gemeinsame Klasse in das Shared CSS aufgenommen.
+
+Daher darf sie ab jetzt für normale Eingabefelder verwendet werden.
+
+WICHTIG:
+Keine neuen CSS-Klassen einfach erfinden, wenn bereits eine passende Shared-Klasse existiert.
+
+Wenn eine wirklich neue gemeinsame UI-Komponente benötigt wird, zuerst prüfen, ob sie bereits existiert.
+
+============================================================
+9. TOOL-UI-STRUKTUR
+============================================================
+
+Die Tools werden normalerweise über:
+
+function initTool() {
+
+    const container =
+        document.getElementById("tool-container");
+
+    container.innerHTML = `...`;
+
+    ...
+}
+
+initialisiert.
+
+Die Oberfläche besteht normalerweise aus einem oder mehreren:
+
+<section class="tool-panel">
+
+    ...
+
+</section>
+
+Panels enthalten typischerweise:
+
+.tool-panel-header
+
+.tool-panel-title
+
+.tool-panel-description
+
+Danach kommen Inputs, Textareas und Buttons.
+
+Beispiel:
+
+<section class="tool-panel">
+
+    <div class="tool-panel-header">
+
+        <div>
+
+            <h2 class="tool-panel-title">
+                Tool Name
+            </h2>
+
+            <p class="tool-panel-description">
+                Beschreibung.
+            </p>
+
+        </div>
+
+    </div>
+
+    ...
+
+</section>
+
+============================================================
+10. BUTTONS
+============================================================
+
+Normale Buttons:
+
+<button
+    class="tool-button"
+    type="button"
+>
+    ...
+</button>
+
+Primäre Aktion:
+
+<button
+    class="tool-button primary"
+    type="button"
+>
+    ...
+</button>
+
+Mehrere Buttons:
+
+<div class="tool-actions">
+
+    ...
+
+</div>
+
+Keine eigenen Button-Klassen erzeugen, wenn die vorhandenen Klassen ausreichen.
+
+============================================================
+11. STATUSSYSTEM
+============================================================
+
+Für Statusmeldungen wird das vorhandene System verwendet:
+
+<div
+    id="status"
+    class="tool-status"
+    role="status"
+    aria-live="polite"
+></div>
+
+Statusarten:
+
+success
+error
+warning
+
+Die vorhandene Funktion:
+
+showToolStatus(
+    "Nachricht",
+    "success"
+);
+
+kann verwendet werden, wenn sie vom Hauptsystem bereitgestellt wird.
+
+Nicht einfach ein eigenes Statussystem erfinden.
+
+============================================================
+12. INPUTS UND TEXTAREAS
+============================================================
+
+Normale einzeilige Eingaben:
+
+class="tool-input"
+
+Mehrzeilige Eingaben:
+
+class="tool-textarea"
+
+Read-only-Ausgaben können ebenfalls:
+
+class="tool-textarea"
+
+verwenden.
+
+Beispiel:
+
+<textarea
+    class="tool-textarea"
+    readonly
+></textarea>
+
+============================================================
+13. JAVASCRIPT-STRUKTUR
+============================================================
+
+Die einzelnen Tool-Scripts sollen möglichst eigenständig sein.
+
+Typischer Aufbau:
+
+/* ============================================
+   TOOL NAME
+============================================ */
+
+function initTool() {
+
+    const container =
+        document.getElementById("tool-container");
+
+    container.innerHTML = `...`;
+
+    /* ========================================
+       ELEMENTS
+    ======================================== */
+
+    ...
+
+    /* ========================================
+       FUNCTIONS
+    ======================================== */
+
+    ...
+
+    /* ========================================
+       EVENTS
+    ======================================== */
+
+    ...
+}
+
+Die großen Kommentarbereiche sollen zur Orientierung beibehalten werden.
+
+Code soll gut lesbar sein.
+
+Nicht unnötig komprimieren.
+
+Keine unnötigen Frameworks oder Abhängigkeiten einführen.
+
+============================================================
+14. CODE-STIL
+============================================================
+
+Wir verwenden einen bewusst übersichtlichen, vertikal formatierten Stil.
+
+Beispiel:
+
+const output =
+    document.getElementById(
+        "tool-output"
+    );
+
+statt unnötig kompakter Einzeiler, wenn der bestehende Stil dadurch inkonsistent würde.
+
+Bestehende Formatierung möglichst beibehalten.
+
+Keine unnötigen Umstellungen des gesamten Scripts.
+
+Wenn nur ein Teil geändert werden muss, ändere nur diesen Teil.
+
+============================================================
+15. TOOL-FUNKTIONALITÄT
+============================================================
+
+Tools sollen nicht nur optisch funktionieren.
+
+Sie sollen:
+
+- echte Eingaben verarbeiten
+- Fehler erkennen
+- verständliche Fehlermeldungen liefern
+- Ergebnisse sauber darstellen
+- keine unnötigen Abstürze verursachen
+- Edge Cases berücksichtigen
+- möglichst mit nativen Browser-APIs arbeiten, wenn diese ausreichen
+
+Bei Validatoren ist besonders wichtig:
+
+Ein Validator soll nicht nur sagen:
+
+"Ungültig"
+
+sondern möglichst erklären:
+
+- warum ungültig
+- welcher Fehler aufgetreten ist
+- wenn möglich Position/Zeile/Spalte
+- relevante Eingabeinformationen
+
+============================================================
+16. VALIDATOREN
+============================================================
+
+Unsere 8 Validatoren sind:
+
+1. JSON Validator
+2. HTML Validator
+3. CSS Validator
+4. JavaScript Validator
+5. XML Validator
+6. URL Validator
+7. UUID Validator
+8. Regex Validator
+
+Validatoren sollen echte Validierung durchführen.
+
+Parser und Validator sind NICHT dasselbe.
+
+Parser:
+    analysiert und zerlegt Daten.
+
+Validator:
+    prüft, ob etwas gültig ist.
+
+Ein Validator darf zusätzlich strukturierte Informationen anzeigen, aber seine Hauptaufgabe ist die Validierung.
+
+============================================================
+17. REGEX VALIDATOR
+============================================================
+
+Der Regex Validator verwendet:
+
+regex-validator-pattern
+regex-validator-flags
+regex-validator-test
+regex-validator-output
+
+Er unterstützt Regex-Flags:
+
+d
+g
+i
+m
+s
+u
+v
+y
+
+Er prüft:
+
+- ob ein Pattern vorhanden ist
+- ob Flags gültig sind
+- doppelte Flags
+- Regex-Syntax
+- optional einen Testtext
+- Anzahl der Treffer
+- gefundene Treffer
+- Position der Treffer
+
+Er besitzt Buttons für:
+
+- Regex prüfen
+- Beispiel
+- Fehlerbeispiel
+- Leeren
+
+Das bestehende Script soll nicht unnötig umgebaut werden.
+
+============================================================
+18. RESPONSIVE DESIGN
+============================================================
+
+Das Shared CSS besitzt bereits Mobile Breakpoints:
+
+max-width: 600px
+max-width: 380px
+
+Die Tools sollen diese vorhandene Struktur nutzen.
+
+Keine tool-spezifischen Mobile-Styles einbauen, wenn das Shared Design bereits ausreicht.
+
+============================================================
+19. LIGHT / DARK THEME
+============================================================
+
+Das Shared Design unterstützt:
+
+Dark Theme:
+Standard :root
+
+Light Theme:
+
+html.light-theme
+
+Tools sollen deshalb keine festen Farben wie:
+
+background: #111;
+
+color: white;
+
+verwenden, wenn dafür bereits Shared Variables existieren.
+
+Stattdessen:
+
+var(--tool-bg)
+var(--tool-surface)
+var(--tool-text)
+var(--tool-text-muted)
+var(--tool-primary)
+var(--tool-success)
+var(--tool-danger)
+var(--tool-warning)
+
+verwenden.
+
+============================================================
+20. WICHTIGE ARBEITSREGEL
+============================================================
+
+NIEMALS eigenständig bestehende Projektregeln ändern.
+
+Insbesondere:
+
+- keine neuen Kategorien
+- keine neuen Dateistrukturen
+- keine neuen Namenskonventionen
+- keine neuen CSS-Klassen ohne Grund
+- keine neuen Frameworks
+- keine unnötigen Abhängigkeiten
+- keine anderen UI-Komponenten
+- keine eigenständige Umgestaltung bestehender Tools
+
+Wenn eine neue Klasse wirklich sinnvoll ist:
+
+1. zuerst prüfen, ob eine vorhandene Klasse verwendet werden kann
+2. wenn nicht, erklären, warum eine neue Klasse nötig ist
+3. erst dann einführen
+
+============================================================
+21. KONSISTENZ VOR NEUERUNG
+============================================================
+
+Bei jeder neuen Datei oder Änderung gilt:
+
+"Wie wurde das in den bisherigen 47/48 Tools gemacht?"
+
+Bestehende Lösungen bevorzugen.
+
+Nicht versuchen, jedes neue Tool komplett neu zu gestalten.
+
+Das Projekt soll wie EIN zusammenhängendes Produkt aussehen.
+
+============================================================
+22. KEINE UNGEFRAGTEN ÄNDERUNGEN
+============================================================
+
+Wenn ich sage:
+
+"mach den nächsten"
+
+dann sollst du das nächste Tool in der vereinbarten Reihenfolge erstellen.
+
+Nicht gleichzeitig andere Dateien verändern.
+
+Wenn ich nach einem Registry-Eintrag frage:
+    nur den Registry-Eintrag liefern.
+
+Wenn ich nach einem vollständigen Script frage:
+    das vollständige Script liefern.
+
+Wenn ich nur einen Teil ändern möchte:
+    nur den betreffenden Teil ändern.
+
+============================================================
+23. REGISTRY UND SCRIPT MÜSSEN ÜBEREINSTIMMEN
+============================================================
+
+Immer prüfen:
+
+tools.js:
+
+script:
+    "validators/regex-validator.js"
+
+muss exakt zur Datei passen:
+
+validators/
+    regex-validator.js
+
+Dasselbe gilt für alle anderen Kategorien.
+
+Keine falschen Dateinamen.
+
+============================================================
+24. TAGS
+============================================================
+
+Tags sind für die Suche gedacht.
+
+Sie sollen das Tool möglichst gut auffindbar machen.
+
+Beispiel:
+
+URL Validator:
+
+"url validator validate uri http https link web"
+
+Regex Validator:
+
+"regex regexp regular expression validator validate pattern"
+
+JSON Validator:
+
+"json validator validate syntax error api data"
+
+Nicht übertreiben und keine zufälligen Begriffe hinzufügen.
+
+============================================================
+25. FEHLERBEHANDLUNG
+============================================================
+
+Fehler sollen benutzerfreundlich dargestellt werden.
+
+Nicht einfach:
+
+"Error"
+
+oder:
+
+"Invalid"
+
+sondern möglichst:
+
+"JSON ist ungültig."
+
+und zusätzlich:
+
+"Fehler: Unexpected token ..."
+
+oder:
+
+"Zeile: X"
+"Spalte: Y"
+
+wenn entsprechende Informationen verfügbar sind.
+
+============================================================
+26. SICHERHEIT
+============================================================
+
+Bei Tools wie JWT:
+
+JWT kann dekodiert/analysiert werden, weil Header und Payload normalerweise nur Base64URL-kodiert sind.
+
+"Decodieren" bedeutet NICHT automatisch "Signatur validieren".
+
+Ein JWT-Tool darf deshalb klar zwischen:
+
+- Decode
+- Inspect
+- Encode
+- Sign
+- Verify
+
+unterscheiden.
+
+Keine falschen Sicherheitsversprechen.
+
+============================================================
+27. KEINE FALSCHEN BEHAUPTUNGEN
+============================================================
+
+Wenn du etwas nicht weißt oder nicht aus den vorhandenen Dateien ableiten kannst:
+
+Sag es.
+
+Behaupte nicht, dass eine Klasse, Funktion oder Datei bereits existiert, wenn du sie nicht gesehen hast.
+
+Beispiel:
+
+FALSCH:
+"tool-input wird bereits in anderen Scripts verwendet."
+
+wenn das nicht überprüft wurde.
+
+RICHTIG:
+"In dem CSS ist tool-input aktuell nicht definiert."
+
+============================================================
+28. BEI CODEÄNDERUNGEN
+============================================================
+
+Vor einer Änderung immer gedanklich prüfen:
+
+1. Existiert die verwendete Klasse?
+2. Existiert die Funktion?
+3. Existiert die Datei?
+4. Passt der Pfad?
+5. Passt die Kategorie?
+6. Passt das bestehende Design?
+7. Wird eine bestehende Konvention verletzt?
+8. Gibt es eine einfachere vorhandene Lösung?
+
+============================================================
+29. AUSGABEFORMAT
+============================================================
+
+Wenn ich nach einem kompletten Script frage:
+
+- vollständigen Code liefern
+- keine Teile auslassen
+- keine "... hier kommt der Rest"-Platzhalter
+- direkt kopierbar
+- bestehende Struktur einhalten
+
+Wenn ich nach einem Registry-Eintrag frage:
+
+- nur den fertigen Eintrag liefern
+- passende Tags
+- passenden Script-Pfad
+- richtige Kategorie
+
+Wenn ich "nächster" sage:
+
+- das nächste Tool aus der aktuellen Reihenfolge bearbeiten
+- nicht zurückspringen
+- keine unnötigen Erklärungen
+
+============================================================
+30. DESIGN-PRINZIP
+============================================================
+
+Das UI soll modern, dunkel, sauber und professionell wirken.
+
+Bestehende Designmerkmale:
+
+- dunkle Oberfläche
+- dezente Borders
+- abgerundete Panels
+- blaue Primary-Farbe
+- grüne Success-Farbe
+- rote Error-Farbe
+- gelbe Warning-Farbe
+- Monospace für Code/Input/Output
+- responsive Layouts
+- Light Theme Unterstützung
+
+Das Shared CSS ist die Quelle der Wahrheit für das Design.
+
+============================================================
+31. AKTUELLER STAND
+============================================================
+
+Wir haben die Tool-Sammlung Schritt für Schritt aufgebaut.
+
+Die Kategorien und jeweils 8 Tools sind bereits geplant bzw. registriert.
+
+Die Registry enthält aktuell 48 Tools.
+
+Wir arbeiten jetzt hauptsächlich daran, die einzelnen Scripts fertigzustellen, zu verbessern und auf Konsistenz zu prüfen.
+
+Wenn ein Tool bereits existiert, nicht einfach eine zweite Variante mit anderem Namen erstellen.
+
+============================================================
+32. WICHTIGSTE REGEL VON ALLEN
+============================================================
+
+KONSISTENZ.
+
+Bevor du etwas neu machst, orientiere dich an dem, was bereits existiert.
+
+Das Ziel ist nicht, jedes Script individuell möglichst clever zu gestalten.
+
+Das Ziel ist eine große, konsistente Developer-Tool-Sammlung, bei der jedes Tool:
+
+- gleich aufgebaut ist
+- gleich aussieht
+- dieselben UI-Komponenten verwendet
+- dieselbe Fehlerbehandlung verwendet
+- dieselben Namenskonventionen verwendet
+- dieselbe Code-Struktur verwendet
+
+Wenn du zwischen "neue bessere Lösung" und "bestehende Projektstruktur beibehalten" wählen musst, bevorzuge grundsätzlich die bestehende Projektstruktur.
+
+Wenn eine Änderung technisch wirklich notwendig ist, erkläre sie kurz, bevor du die Struktur veränderst.
+
+============================================================
+33. ARBEITSWEISE MIT MIR
+============================================================
+
+Ich arbeite Schritt für Schritt.
+
+Wenn ich sage:
+
+"bitte den nächsten"
+
+liefere das nächste Tool.
+
+Wenn ich sage:
+
+"bitte den Eintrag"
+
+liefere den Registry-Eintrag.
+
+Wenn ich sage:
+
+"bitte das komplette Script"
+
+liefere die komplette Datei.
+
+Wenn ich etwas korrigieren möchte, ändere nicht ungefragt andere Teile.
+
+Wenn ich frage, ob etwas existiert, prüfe zuerst die Informationen, die ich dir gegeben habe.
+
+Keine unnötigen Rückfragen, wenn die Aufgabe eindeutig ist.
+
+Aber bei echten Widersprüchen oder fehlenden Informationen lieber kurz nachfragen als etwas erfinden.
+
+============================================================
+ENDE DER PROJEKTREGELN
+============================================================
+
+Ab jetzt sollst du dich bei jeder Antwort an diese Struktur und Regeln halten.

@@ -418,6 +418,73 @@ input {
 
 
 /* ============================================
+   INPUT
+============================================ */
+
+.tool-input {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid var(--tool-border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        var(--tool-bg);
+
+    color:
+        var(--tool-text);
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    margin-bottom: 10px;
+}
+
+
+.tool-input::placeholder {
+
+    color:
+        var(--tool-text-muted);
+
+    opacity: 0.8;
+}
+
+
+.tool-input:focus {
+
+    border-color:
+        var(--tool-primary);
+
+    box-shadow:
+        0 0 0 3px
+        color-mix(
+            in srgb,
+            var(--tool-primary) 15%,
+            transparent
+        );
+}
+
+
+/* ============================================
    ACTIONS
 ============================================ */
 
@@ -634,6 +701,14 @@ input {
     .tool-textarea {
 
         min-height: 200px;
+
+        font-size: 12px;
+    }
+
+
+    .tool-input {
+
+        min-height: 44px;
 
         font-size: 12px;
     }

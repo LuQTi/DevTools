@@ -107,7 +107,7 @@ function loadToolScript() {
 
 
     script.src =
-        `../tools/${tool.script}`;
+        `../tools/scripts/${tool.script}`;
 
 
     script.onload =
